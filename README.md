@@ -4,7 +4,7 @@
   <a href="/redirectorapps/" title="Click me to go to NothingButTyler's Social media">Social Media</a>
   <a href="/contact-nothingbuttyler/" title="Contact Us for anything. Please do not contact for if you want robux or anything like that. Thank you.">Contact NothingButTyler</a>
   <a href="/about/">About NothingButTyler</a>
-</div><script>
+</div><style>
 /* Add a black background color to the top navigation */
 .topnav {
   background-color: #000000;
@@ -32,7 +32,7 @@
   background-color: #2B65EC;
   color: white;
 }
-</script><hr></hr>
+</style><hr></hr>
 
 <body style="background-color: #2b65ec">
   
