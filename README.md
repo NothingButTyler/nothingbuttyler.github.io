@@ -3,9 +3,6 @@
     
   <a class="active" href="/" title="NothingButTyler.github.io">Home</a>
   <a class="active" href="/redirectorapps/" title="Social Media that NothingButTyler has right now.">Social Media</a>
-<t>-</t>
-  <a class="" href="/valodoka/" title="Head to Valodoka, the #1 site for unblocked games and educational games." alt="textUrl link">Valodoka</a>
-  <a class="" href="/schoolappsredirector" title="Head to School Apps Redirector, the only site used to redirect to school apps." alt="textUrl link">School Apps Redirector</a>
   <a href="/contactus/" title="Contact Us ONLY for certain questions or comments. NO ASKING FOR ROBUX OR ANY OTHER INNAPROPERATE THINGS. Thank you.">Contact</a>
   <a href="/about/" title="See what's about NothingButTyler. Personal stuff about NothingButTyler is not available on this page or any other page.">About NothingButTyler</a>
 </div>
