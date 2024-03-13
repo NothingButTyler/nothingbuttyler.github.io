@@ -1,4 +1,5 @@
-<body><div class="topnav">
+<!Doctype html><html><head><title>Home | NothingButTyler Official Site</title></head><body>
+ <div class="topnav">
  <meta name="viewport" content="width=device-width, initial-scale=1" />
 <style>
 /* Center the loader */
