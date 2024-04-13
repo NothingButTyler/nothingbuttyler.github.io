@@ -1,6 +1,9 @@
 <!Doctype html><html><head><title>Home | NothingButTyler Official Site</title></head><body>
  <div class="topnav">
  <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2216478317798380"
+     crossorigin="anonymous"></script>
 <style>
 /* Center the loader */
 #loader {
