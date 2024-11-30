@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>App Launcher (Button with Popup Menu and buttons inside)</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            font-family: Arial Black, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .blurred-background {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(0, 0, 0, 0.5);
+            backdrop-filter: blur(5px);
+            display: none;
+        }
+
+        .popup-menu {
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgb(0,255,255);
+background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(0,0,255,1) 100%);
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.3);
+            display: none;
+        }
+
+        .popup-btn {
+            border-radius: 10px;
+            border: 1px solid #ccc;
+            padding: 10px;
+            margin: 5px;
+            cursor: pointer;
+            position: right;
+            background: rgb(0,255,255);
+background: radial-gradient(circle, rgba(0,255,255,1) 0%, rgba(164,0,0,1) 100%);
+        }
+
+        .close-btn {
+            background: red;
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+            float: right;
+            }
+            
+            .open-button {
+            background: rgb(170,0,0);
+background: radial-gradient(circle, rgba(170,0,0,1) 0%, rgba(255,0,0,1) 100%);
+            color: white;
+            border: none;
+            padding: 10px;
+            border-radius: 10px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+
+    <button id="open-popup" class="open-button">
+    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-three-dots" viewBox="0 0 16 16">
+  <path d="M3 9.5a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3m5 0a1.5 1.5 0 1 1 0-3 1.5 1.5 0 0 1 0 3"/>
+</svg>
+</button>
+
+    <div class="blurred-background" id="blur-background"></div>
+
+    <div class="popup-menu" id="popup-menu">
+      <h1>Sub</h1>  <button class="close-btn" id="close-popup">Close</button>
+        <div><br></br>
+            <button class="popup-btn"><img src="//login.i-ready.com/favicon.ico" height="30" width="30"></img></button>
+            <button class="popup-btn"><img src="//login.i-ready.com/favicon.ico" height="30" width="30"></img></button>
+            <button class="popup-btn"><img src="//login.i-ready.com/favicon.ico" height="30" width="30"></img></button>
+            <button class="popup-btn"><img src="//login.i-ready.com/favicon.ico" height="30" width="30"></img></button>
+        </div>
+    </div>
+
+    <script>
+        const openPopup = document.getElementById('open-popup');
+        const closePopup = document.getElementById('close-popup');
+        const popupMenu = document.getElementById('popup-menu');
+        const blurBackground = document.getElementById('blur-background');
+
+        openPopup.onclick = function() {
+            popupMenu.style.display = 'block';
+            blurBackground.style.display = 'block';
+        };
+
+        closePopup.onclick = function() {
+            popupMenu.style.display = 'none';
+            blurBackground.style.display = 'none';
+        };
+    </script>
+
+</body>
+</html>
