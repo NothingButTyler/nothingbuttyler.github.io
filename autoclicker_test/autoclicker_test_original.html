@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Autoclicker Test</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+    <font color="#fff"><h1>Autoclicker Test</h1><p>The maximum amount of clicks is 100,000. Good luck!</p></font>
+        <button id="favorite-button" class="favorite-btn">
+             
+            <span id="favorite-count">0</span><span id="star"></span>
+        </button>
+<a href="//nothingbuttyler.github.io">&nbsp;</a></div></div>
+<style>
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #f0f0f0;
+}
+
+.container {
+    text-align: center;
+}
+
+.favorite-btn {
+    font-size: 24px;
+    padding: 10px 20px;
+    color: white;
+    background-color: blue;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.favorite-btn:hover {
+    background-color: darkblue;
+}
+
+.ratings {
+    margin-top: 20px;
+    font-size: 24px;
+}
+</style>
+<script>
+document.getElementById('favorite-button').addEventListener('click', function() {
+    const favoriteCountElement = document.getElementById('favorite-count');
+    let count = parseInt(favoriteCountElement.textContent);
+    favoriteCountElement.textContent = count + 1;
+});
+</script>
