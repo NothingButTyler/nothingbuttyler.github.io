@@ -309,6 +309,8 @@ function topFunction() {
 <h1><font color="white">Verify your account to continue</h1>
 	     <p><font color="white">Enter your 4-digit pin.</p>
 	     <input type="password" id="number-password" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 4)" />
+	     <button class="submit-button">Submit</button>
+	     <!--button and input style-->
 	     <style> 
 		     input[type="password"] { 
 			     width: 100px;
@@ -322,15 +324,9 @@ function topFunction() {
 			     margin: 0;
 		     } 
 	     </style>
-	     <!--end of input number style-->
-	     <!--input number script-->
-	     <script> 
-		     const input = document.getElementById('number-password');
-		     // Prevent non-numeric input
-		     input.addEventListener('keydown', function(event) { 
-			     // Allow only numbers and control keys// 
-			     if (!((event.key >= '0' && event.key <= '9') || event.key === 'Backspace' || event.key === 'Delete')) { event.preventDefault(); } });
-	     </script>
+	     <!--end of button and input style-->
+	     <!--button and input script-->
+	     <script> const input = document.getElementById('number-password');  input.addEventListener('keydown', function(event) { if (!((event.key >= '0' && event.key <= '9') || event.key === 'Backspace' || event.key === 'Delete')) { event.preventDefault(); } });  document.getElementById('submit-button').addEventListener('click', function() {  if (input.value.trim() === '') { alert('Please enter your 4-digit password before continuing.'); } else { window.location.href = 'https://nothingbuttyler.github.io/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/continue.html; } }); </script>
 	     <!--end of input number script-->
 	     <p><font color="white">If you forgot your 4-digit pin, <a href="/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/verify-using-email">use your email instead</a>.</p>
 
