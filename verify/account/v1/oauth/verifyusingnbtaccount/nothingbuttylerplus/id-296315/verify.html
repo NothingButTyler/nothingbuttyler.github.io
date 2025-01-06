@@ -309,7 +309,7 @@ function topFunction() {
 <h1><font color="white">Verify your account to continue</h1>
 	     <p><font color="white">Enter your 4-digit pin.</p>
 	     <input type="password" id="number-password" maxlength="4" oninput="this.value = this.value.replace(/\D/g, '').slice(0, 4)" />
-	     <button class="submit-button">Submit</button>
+	     <button class="submit-button" id="submit-button">Submit</button>
 	     <!--button and input style-->
 	     <style> 
 		     input[type="password"] { 
@@ -323,10 +323,36 @@ function topFunction() {
 			     -webkit-appearance: none;
 			     margin: 0;
 		     } 
+
+		     submit-button { 
+			     margin-top: 10px; 
+			     padding: 10px 15px;
+			     font-size: 16px; 
+			     border: none;
+			     border-radius: 4px;
+			     background-color: #4285F4;
+			     color: white;
+			     cursor: pointer;
+		     } 
+		     button:hover { 
+			     background-color: #357AE8; 
+		     }
 	     </style>
 	     <!--end of button and input style-->
 	     <!--button and input script-->
-	     <script> const input = document.getElementById('number-password');  input.addEventListener('keydown', function(event) { if (!((event.key >= '0' && event.key <= '9') || event.key === 'Backspace' || event.key === 'Delete')) { event.preventDefault(); } });  document.getElementById('submit-button').addEventListener('click', function() {  if (input.value.trim() === '') { alert('Please enter your 4-digit password before continuing.'); } else { window.location.href = 'https://nothingbuttyler.github.io/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/continue.html; } }); </script>
+	     <script> 
+		     const input = document.getElementById('number-password'); 
+		     input.addEventListener('keydown', function(event) { 
+			     if (!((event.key >= '0' && event.key <= '9') || event.key === 'Backspace' || event.key === 'Delete')) { 
+				     event.preventDefault(); } });  
+		     document.getElementById('submit-button').addEventListener('click', function() {  
+			     if (input.value.trim() === '') { 
+				     alert('Please enter your 4-digit password before continuing.'); 
+			     } 
+			     else {
+				     window.location.href = 'https://nothingbuttyler.github.io/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/continue.html;
+					     }}); 
+	     </script>
 	     <!--end of input number script-->
 	     <p><font color="white">If you forgot your 4-digit pin, <a href="/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/verify-using-email">use your email instead</a>.</p>
 
