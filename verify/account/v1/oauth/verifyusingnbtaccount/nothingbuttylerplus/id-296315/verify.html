@@ -308,7 +308,31 @@ function topFunction() {
 	     <img src="https://avatars.githubusercontent.com/u/149272952" width="30" height="30">&nbsp;NothingButTyler Official Site</img><br>
 <h1><font color="white">Verify your account to continue</h1>
 	     <p><font color="white">Enter your 4-digit pin.</p>
-	     <input type="number" name="pin" maxlength="4" title="Enter your 4-digit pin.">
+	     <input type="number" id="number-password" maxlength="4" oninput="this.value = this.value.slice(0, 4)" min="0" max="9999" /> 
+	   <!--input number style-->
+	     <style> 
+		     input[type="number"] { 
+			     width: 100px;
+			     padding: 10px;
+			     font-size: 16px; 
+			     border: 1px solid #ccc;
+			     border-radius: 4px; 
+		     } 
+		     input[type="number"]::-webkit-inner-spin-button, input[type="number"]::-webkit-outer-spin-button { 
+			     -webkit-appearance: none;
+			     margin: 0;
+		     } 
+	     </style>
+	     <!--end of input number style-->
+	     <!--input number script-->
+	     <script>
+		     const input = document.getElementById('number-password'); 
+		     input.addEventListener('keydown', function(event) {
+			     // Allowing only number keys and control keys
+			     if (!((event.key >= '0' && event.key <= '9') || event.key === 'Backspace' || event.key === 'Delete')) {
+				event.preventDefault(); } });
+	     </script> 
+	     <!--end of input number script-->
 	     <p><font color="white">If you forgot your 4-digit pin, <a href="/verify/account/v1/oauth/verifyusingnbtaccount/nothingbuttylerplus/id-296315/verify-using-email">use your email instead</a>.</p>
 
 	     
