@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login with Google</title>
+    <script src="https://apis.google.com/js/platform.js" async defer></script> 
+  </head>
+  <body> 
+    <div id="g_id_onload" data-client_id="531378190318-523kkaosk0cjsjvh2rvhfovpk91gt306.apps.googleusercontent.com" data-callback="handleCredentialResponse"> 
+    </div> 
+    <div class="g_id_signin" data-type="standard"></div> 
+    <script> function handleCredentialResponse(response) {
+  // Here you can process the response.
+  // You can redirect after sign-in
+  window.location.href = 'anotherpage.html'; 
+  // Redirect to another page
+} 
+    </script> 
+  </body>
+</html>
