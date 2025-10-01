@@ -267,3 +267,27 @@ footer a:hover {
         font-size: 1em;
     }
 }
+
+
+
+
+/* MOBILE */
+/* Mobile Menu Styling (Add this to the bottom of styles.css) */
+@media (max-width: 768px) {
+    .navbar nav.nav-open {
+        display: flex;
+        flex-direction: column;
+        position: absolute;
+        top: 100%; /* Below the header */
+        left: 0;
+        width: 100%;
+        background-color: var(--color-darker-bg);
+        border-top: 1px solid var(--color-accent-blue);
+        padding: 10px 0;
+    }
+
+    .navbar nav.nav-open a {
+        margin: 10px 5%;
+        text-align: left;
+    }
+}
