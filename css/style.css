@@ -1,0 +1,232 @@
+/* ======================================= */
+/* 1. Global Variables and Base Reset */
+/* ======================================= */
+
+:root {
+    /* Color Palette */
+    --color-primary-dark: #121212; /* Very Dark Background (like the GitHub repo) */
+    --color-secondary-dark: #1e1e1e; /* Slightly Lighter for sections/cards */
+    --color-text-light: #e0e0e0; /* Light Gray for main text */
+    --color-accent-blue: #00bcd4; /* ELECTRIC BLUE: Links, Highlights, Identity */
+    --color-cta-orange: #ff7f00; /* SAFETY ORANGE: Primary Action Buttons (Subscribe) */
+    
+    /* Font Stack */
+    --font-heading: 'Roboto', sans-serif;
+    --font-body: 'Roboto', sans-serif;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-body);
+    background-color: var(--color-primary-dark);
+    color: var(--color-text-light);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+main {
+    max-width: 900px; /* Limits content width like your previous design */
+    margin: 0 auto;
+    padding: 20px;
+    text-align: center; /* Ensures central alignment of content blocks */
+}
+
+a {
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+a:hover {
+    color: #4dd0e1; /* Lighter shade of blue on hover */
+}
+
+.accent-color {
+    color: var(--color-accent-blue);
+}
+
+/* ======================================= */
+/* 2. Header and Navigation */
+/* ======================================= */
+
+.main-header {
+    background-color: var(--color-secondary-dark);
+    padding: 15px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid var(--color-accent-blue);
+}
+
+.logo h1 {
+    font-size: 1.8em;
+    font-weight: 700;
+}
+
+.main-nav ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.main-nav a {
+    color: var(--color-text-light);
+    padding: 5px 10px;
+    border-radius: 4px;
+}
+
+.main-nav a.active {
+    border-bottom: 2px solid var(--color-accent-blue);
+    font-weight: 700;
+}
+
+/* The 'Tyler PLUS+' button styling */
+.nav-plus-cta {
+    background-color: var(--color-cta-orange);
+    color: var(--color-primary-dark) !important;
+    padding: 5px 10px;
+    border-radius: 4px;
+    font-weight: 700;
+    transition: background-color 0.3s ease;
+}
+
+.nav-plus-cta:hover {
+    background-color: #ff9833; /* Slightly lighter orange on hover */
+}
+
+/* ======================================= */
+/* 3. Hero Section (The Subscription Pitch) */
+/* ======================================= */
+
+.hero-section {
+    padding: 80px 20px;
+    background-color: var(--color-primary-dark);
+}
+
+.welcome-message {
+    font-family: var(--font-heading);
+    font-size: 2.8em;
+    margin-bottom: 10px;
+    text-transform: uppercase;
+}
+
+.identity-statement {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #bdbdbd;
+}
+
+/* The Main CTA Button (Safety Orange) */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    border-radius: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+}
+
+.primary-cta {
+    background-color: var(--color-cta-orange);
+    color: var(--color-primary-dark);
+    font-size: 1.4em;
+    border: 3px solid var(--color-cta-orange);
+    transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+.primary-cta:hover {
+    background-color: #ff9833;
+    transform: scale(1.05);
+}
+
+.micro-text {
+    font-size: 0.9em;
+    color: #9e9e9e;
+    margin-bottom: 40px;
+}
+
+/* ======================================= */
+/* 4. Nothingbuttyler PLUS Feature */
+/* ======================================= */
+
+.plus-promo-section {
+    background-color: var(--color-secondary-dark); /* Subtle darker background */
+    padding: 40px 20px;
+    border-radius: 10px;
+    margin-bottom: 40px;
+    border: 1px solid rgba(0, 188, 212, 0.2); /* Subtle blue border */
+}
+
+.plus-promo-section h3 {
+    font-size: 1.8em;
+    margin-bottom: 25px;
+    color: var(--color-text-light);
+}
+
+.plus-name {
+    color: var(--color-accent-blue);
+}
+
+.plus-benefits {
+    display: flex;
+    justify-content: space-around;
+    gap: 20px;
+    margin-bottom: 30px;
+    flex-wrap: wrap;
+}
+
+.benefit-card {
+    background-color: #2a2a2a;
+    padding: 20px;
+    border-radius: 8px;
+    flex: 1;
+    min-width: 200px;
+    text-align: center;
+    border-left: 3px solid var(--color-accent-blue);
+}
+
+.benefit-card h4 {
+    color: var(--color-accent-blue);
+    margin-bottom: 5px;
+}
+
+.secondary-cta {
+    background-color: var(--color-accent-blue);
+    color: var(--color-primary-dark);
+    font-size: 1em;
+    transition: background-color 0.3s ease;
+}
+
+.secondary-cta:hover {
+    background-color: #4dd0e1;
+}
+
+/* ======================================= */
+/* 5. Content Preview & Footer */
+/* ======================================= */
+
+.content-preview {
+    padding: 20px;
+    margin-bottom: 40px;
+}
+
+.content-preview h3 {
+    color: var(--color-text-light);
+    margin-bottom: 10px;
+}
+
+.main-footer {
+    background-color: #0d0d0d;
+    color: #616161;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9em;
+    border-top: 1px solid var(--color-secondary-dark);
+}
