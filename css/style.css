@@ -1,229 +1,269 @@
-/* ======================================= */
-/* 1. Global Variables and Base Reset */
-/* ======================================= */
-
-@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Roboto:wght@400;700&display=swap');
-
+/* Color Variables for easy theme changing */
 :root {
-    /* Color Palette */
-    --color-primary-dark: #0a0a0a; /* True Black/Dark Gray Background */
-    --color-secondary-dark: #181c26; /* Deep Navy Blue (Replaces Valodoka's deep red) */
-    --color-text-light: #f0f0f0; /* Near-White for main text */
-    --color-accent-blue: #00bcd4; /* ELECTRIC BLUE: Links, Highlights */
-    --color-cta-orange: #ff7f00; /* SAFETY ORANGE: Primary Action Buttons (Subscribe) */
-    
-    /* Font Stack */
-    --font-script: 'Pinyon Script', cursive; /* For elegant, high-impact headings */
-    --font-heading: 'Roboto', sans-serif;
-    --font-body: 'Roboto', sans-serif;
+    --color-dark-bg: #121212; /* Primary Background: Dark Charcoal */
+    --color-darker-bg: #0A0A0A; /* Darker Background for sections */
+    --color-text-light: #FFFFFF; /* Primary Text */
+    --color-accent-blue: #007AFF; /* Electric Blue Accent */
+    --color-accent-hover: #3399FF; /* Lighter Blue for hover states */
+    --color-card-dark: #202020; /* Darker card background */
 }
 
+/* Base Styles & Font Reset */
 * {
+    box-sizing: border-box;
     margin: 0;
     padding: 0;
-    box-sizing: border-box;
 }
 
 body {
-    font-family: var(--font-body);
-    background-color: var(--color-primary-dark);
+    font-family: 'Montserrat', sans-serif; /* Clean, modern font */
+    background-color: var(--color-dark-bg);
     color: var(--color-text-light);
     line-height: 1.6;
-    min-height: 100vh;
 }
 
-main {
-    max-width: 900px;
-    margin: 0 auto;
-    padding: 20px;
-    text-align: center; /* Keep content centralized like Valodoka */
-}
-
-h1, h2, h3 {
-    font-family: var(--font-script); /* Apply script font for main titles */
+/* Headings and Text */
+h1, h2 {
+    font-weight: 900; /* Extra bold for impact */
+    margin-bottom: 0.5em;
     color: var(--color-text-light);
-    font-weight: 400; /* Script fonts often look best without bolding */
 }
 
-a {
-    color: var(--color-accent-blue);
+p {
+    margin-bottom: 1em;
+}
+
+.intro-text {
+    font-size: 1.1em;
+    font-weight: 400;
+}
+
+/* Buttons (Inspired by the 'Explore Games' button) */
+.btn {
+    display: inline-block;
+    padding: 12px 30px;
     text-decoration: none;
-    transition: color 0.3s ease;
+    font-weight: 700;
+    border-radius: 8px; /* Slightly rounded edges */
+    transition: background-color 0.3s, transform 0.2s;
+    text-transform: uppercase;
+    font-size: 1em;
+    border: none;
+    cursor: pointer;
 }
 
-a:hover {
-    color: #4dd0e1;
+.primary-btn {
+    background-color: var(--color-accent-blue);
+    color: var(--color-text-light);
 }
 
-.accent-color {
+.primary-btn:hover {
+    background-color: var(--color-accent-hover);
+    transform: translateY(-2px); /* Lift effect on hover */
+}
+
+.secondary-btn {
+    background-color: transparent;
     color: var(--color-accent-blue);
+    border: 2px solid var(--color-accent-blue);
+    padding: 8px 15px;
 }
 
-/* ======================================= */
-/* 2. Header and Navigation */
-/* ======================================= */
+.secondary-btn:hover {
+    background-color: var(--color-accent-blue);
+    color: var(--color-text-light);
+}
 
-.main-header {
-    background-color: var(--color-secondary-dark); /* Deep Navy Header */
-    padding: 15px 20px;
+.large-btn {
+    font-size: 1.25em;
+    padding: 15px 40px;
+}
+
+.centered-btn {
+    display: block;
+    width: fit-content;
+    margin: 2em auto 0;
+}
+
+
+/* Navigation Bar (Clean and Simple) */
+.navbar {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    border-bottom: 2px solid var(--color-accent-blue);
-}
-/* Ensure logo remains a professional font */
-.logo h1 {
-    font-family: var(--font-heading);
-    font-size: 1.8em;
-    font-weight: 700;
-}
-
-.main-nav ul {
-    list-style: none;
-    display: flex;
-    gap: 20px;
+    padding: 15px 5%;
+    background-color: var(--color-darker-bg); /* Slightly darker bar */
+    border-bottom: 3px solid var(--color-accent-blue);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
 }
 
-/* Style the navigation links with minimal borders */
-.main-nav a {
+.logo {
+    font-size: 1.5em;
+    font-weight: 900;
+    color: var(--color-accent-blue); /* Logo stands out */
+}
+
+.navbar a {
     color: var(--color-text-light);
-    padding: 5px 10px;
-    border-bottom: 2px solid transparent; /* Prepare for hover effect */
-}
-
-.main-nav a.active {
-    border-bottom-color: var(--color-accent-blue);
+    text-decoration: none;
+    margin-left: 20px;
     font-weight: 700;
+    padding: 5px 0;
+    transition: color 0.3s;
 }
 
-/* The 'Tyler PLUS+' button styling remains Safety Orange */
-.nav-plus-cta {
-    background-color: var(--color-cta-orange);
-    color: var(--color-primary-dark) !important;
-    padding: 5px 12px;
-    border-radius: 20px; /* More rounded button style */
-    font-weight: 700;
-    font-family: var(--font-heading);
-}
-
-
-/* ======================================= */
-/* 3. Hero Section (Script Font for Welcome) */
-/* ======================================= */
-
-.hero-section {
-    padding: 80px 20px 60px;
-    background-color: var(--color-primary-dark);
-}
-/* Apply the script font to the main welcome message */
-.welcome-message {
-    font-family: var(--font-script);
-    font-size: 4em; /* Larger to match Valodoka impact */
-    margin-bottom: 5px;
-}
-
-.identity-statement {
-    font-family: var(--font-body); /* Keep the body text readable */
-    font-size: 1.1em;
-    margin-bottom: 30px;
-    color: #c4c4c4;
-}
-
-/* CTA Button Styling (Safety Orange) */
-.cta-button {
-    display: inline-block;
-    padding: 15px 30px;
-    border-radius: 8px;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
-}
-
-.primary-cta {
-    background-color: var(--color-cta-orange);
-    color: var(--color-primary-dark);
-    font-family: var(--font-heading);
-    font-size: 1.4em;
-    border: 3px solid var(--color-cta-orange);
-}
-
-/* ======================================= */
-/* 4. Nothingbuttyler PLUS Feature (Content Blocks) */
-/* ======================================= */
-
-.plus-promo-section {
-    background-color: var(--color-secondary-dark); /* Deep Navy Section BG */
-    padding: 40px 20px;
-    margin-bottom: 40px;
-}
-/* Apply script font to the Plus header */
-.plus-promo-section h3 {
-    font-family: var(--font-script);
-    font-size: 2.2em;
-    margin-bottom: 30px;
-}
-
-.plus-name {
+.navbar a:hover {
     color: var(--color-accent-blue);
 }
 
-.plus-benefits {
-    display: flex;
-    justify-content: center; /* Center the cards */
-    gap: 25px;
-    margin-bottom: 30px;
-    flex-wrap: wrap;
+.menu-toggle {
+    display: none; /* Hide on desktop */
 }
 
-/* Benefit Cards: Mimicking Valodoka's square blocks */
-.benefit-card {
-    background-color: #262626; /* Darker block color */
-    padding: 25px;
+/* Hero Section (The Landing Page) */
+.hero {
+    text-align: center;
+    padding: 80px 5%;
+    background: radial-gradient(circle at center, #1C1C1C 0%, var(--color-dark-bg) 100%);
+}
+
+.hero h1 {
+    font-size: 2.5em;
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+
+.hero p {
+    font-size: 1.2em;
+    margin-bottom: 30px;
+    color: #CCCCCC;
+}
+
+.hero-avatar {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    border: 5px solid var(--color-accent-blue); /* Avatar frame highlight */
+    object-fit: cover;
+}
+
+/* Content Sections */
+.content-section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.dark-bg {
+    background-color: var(--color-darker-bg);
+}
+
+/* Card Grid (Inspired by Valodoka Games Placeholders) */
+.video-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+    max-width: 1000px;
+    margin: 40px auto;
+}
+
+.card {
+    background-color: var(--color-card-dark);
+    padding: 30px;
     border-radius: 12px;
-    width: 250px; /* Fixed width for a block feel */
-    min-height: 150px;
+    text-align: center;
+    min-height: 200px;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
-    border: 1px solid rgba(0, 188, 212, 0.4); /* Subtle blue border */
+    border: 2px solid transparent;
+    transition: border-color 0.3s, transform 0.3s;
 }
 
-.benefit-card h4 {
+.card:hover {
+    border-color: var(--color-accent-blue);
+    transform: translateY(-5px); /* Card lift effect */
+}
+
+.card p {
+    font-size: 1.2em;
+    font-weight: 700;
+    margin: 0;
+}
+
+
+/* NothingButTyler Plus Section - Highlighting the free subscription */
+.plus-section {
+    background-color: var(--color-accent-blue); /* Blue background for high visibility */
+    color: var(--color-dark-bg);
+    padding: 80px 5%;
+}
+
+.plus-box h2, .plus-box p {
+    color: var(--color-dark-bg);
+}
+
+.plus-box .primary-btn {
+    /* Reverse the colors for better contrast on the blue background */
+    background-color: var(--color-dark-bg);
     color: var(--color-accent-blue);
-    font-family: var(--font-heading);
-    margin-bottom: 5px;
 }
 
-.secondary-cta {
-    background-color: var(--color-accent-blue);
-    color: var(--color-primary-dark);
-    font-family: var(--font-heading);
-    font-size: 1em;
+.plus-box .primary-btn:hover {
+    background-color: #333333; /* Darker hover */
+    color: var(--color-accent-hover);
 }
 
-/* ======================================= */
-/* 5. Content Preview & Footer */
-/* ======================================= */
-
-.content-preview {
-    padding: 20px;
-    margin-bottom: 40px;
-}
-
-.content-preview h3 {
-    font-family: var(--font-script);
-    font-size: 2.5em;
-    margin-bottom: 10px;
-}
-
-.main-footer {
-    background-color: #0d0d0d;
-    color: #616161;
-    text-align: center;
-    padding: 20px;
+.small-text {
     font-size: 0.9em;
-    border-top: 1px solid var(--color-secondary-dark);
+    margin-top: -1em;
+    margin-bottom: 2em;
+}
+
+/* Footer */
+footer {
+    padding: 20px 5%;
+    text-align: center;
+    background-color: var(--color-darker-bg);
+    font-size: 0.9em;
+    color: #AAAAAA;
+}
+
+footer a {
+    color: var(--color-accent-blue);
+    text-decoration: none;
+    margin: 0 5px;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    .navbar nav {
+        display: none; /* Hide nav links by default on small screens */
+    }
+    
+    .menu-toggle {
+        display: block; /* Show the menu icon */
+        background: none;
+        border: none;
+        color: var(--color-accent-blue);
+        font-size: 2em;
+    }
+
+    .hero h1 {
+        font-size: 2em;
+    }
+    
+    .hero p {
+        font-size: 1em;
+    }
+    
+    .large-btn {
+        font-size: 1em;
+    }
 }
