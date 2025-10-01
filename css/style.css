@@ -2,15 +2,18 @@
 /* 1. Global Variables and Base Reset */
 /* ======================================= */
 
+@import url('https://fonts.googleapis.com/css2?family=Pinyon+Script&family=Roboto:wght@400;700&display=swap');
+
 :root {
     /* Color Palette */
-    --color-primary-dark: #121212; /* Very Dark Background (like the GitHub repo) */
-    --color-secondary-dark: #1e1e1e; /* Slightly Lighter for sections/cards */
-    --color-text-light: #e0e0e0; /* Light Gray for main text */
-    --color-accent-blue: #00bcd4; /* ELECTRIC BLUE: Links, Highlights, Identity */
+    --color-primary-dark: #0a0a0a; /* True Black/Dark Gray Background */
+    --color-secondary-dark: #181c26; /* Deep Navy Blue (Replaces Valodoka's deep red) */
+    --color-text-light: #f0f0f0; /* Near-White for main text */
+    --color-accent-blue: #00bcd4; /* ELECTRIC BLUE: Links, Highlights */
     --color-cta-orange: #ff7f00; /* SAFETY ORANGE: Primary Action Buttons (Subscribe) */
     
     /* Font Stack */
+    --font-script: 'Pinyon Script', cursive; /* For elegant, high-impact headings */
     --font-heading: 'Roboto', sans-serif;
     --font-body: 'Roboto', sans-serif;
 }
@@ -30,10 +33,16 @@ body {
 }
 
 main {
-    max-width: 900px; /* Limits content width like your previous design */
+    max-width: 900px;
     margin: 0 auto;
     padding: 20px;
-    text-align: center; /* Ensures central alignment of content blocks */
+    text-align: center; /* Keep content centralized like Valodoka */
+}
+
+h1, h2, h3 {
+    font-family: var(--font-script); /* Apply script font for main titles */
+    color: var(--color-text-light);
+    font-weight: 400; /* Script fonts often look best without bolding */
 }
 
 a {
@@ -43,7 +52,7 @@ a {
 }
 
 a:hover {
-    color: #4dd0e1; /* Lighter shade of blue on hover */
+    color: #4dd0e1;
 }
 
 .accent-color {
@@ -55,15 +64,16 @@ a:hover {
 /* ======================================= */
 
 .main-header {
-    background-color: var(--color-secondary-dark);
+    background-color: var(--color-secondary-dark); /* Deep Navy Header */
     padding: 15px 20px;
     display: flex;
     justify-content: space-between;
     align-items: center;
     border-bottom: 2px solid var(--color-accent-blue);
 }
-
+/* Ensure logo remains a professional font */
 .logo h1 {
+    font-family: var(--font-heading);
     font-size: 1.8em;
     font-weight: 700;
 }
@@ -74,54 +84,52 @@ a:hover {
     gap: 20px;
 }
 
+/* Style the navigation links with minimal borders */
 .main-nav a {
     color: var(--color-text-light);
     padding: 5px 10px;
-    border-radius: 4px;
+    border-bottom: 2px solid transparent; /* Prepare for hover effect */
 }
 
 .main-nav a.active {
-    border-bottom: 2px solid var(--color-accent-blue);
+    border-bottom-color: var(--color-accent-blue);
     font-weight: 700;
 }
 
-/* The 'Tyler PLUS+' button styling */
+/* The 'Tyler PLUS+' button styling remains Safety Orange */
 .nav-plus-cta {
     background-color: var(--color-cta-orange);
     color: var(--color-primary-dark) !important;
-    padding: 5px 10px;
-    border-radius: 4px;
+    padding: 5px 12px;
+    border-radius: 20px; /* More rounded button style */
     font-weight: 700;
-    transition: background-color 0.3s ease;
+    font-family: var(--font-heading);
 }
 
-.nav-plus-cta:hover {
-    background-color: #ff9833; /* Slightly lighter orange on hover */
-}
 
 /* ======================================= */
-/* 3. Hero Section (The Subscription Pitch) */
+/* 3. Hero Section (Script Font for Welcome) */
 /* ======================================= */
 
 .hero-section {
-    padding: 80px 20px;
+    padding: 80px 20px 60px;
     background-color: var(--color-primary-dark);
 }
-
+/* Apply the script font to the main welcome message */
 .welcome-message {
-    font-family: var(--font-heading);
-    font-size: 2.8em;
-    margin-bottom: 10px;
-    text-transform: uppercase;
+    font-family: var(--font-script);
+    font-size: 4em; /* Larger to match Valodoka impact */
+    margin-bottom: 5px;
 }
 
 .identity-statement {
-    font-size: 1.2em;
+    font-family: var(--font-body); /* Keep the body text readable */
+    font-size: 1.1em;
     margin-bottom: 30px;
-    color: #bdbdbd;
+    color: #c4c4c4;
 }
 
-/* The Main CTA Button (Safety Orange) */
+/* CTA Button Styling (Safety Orange) */
 .cta-button {
     display: inline-block;
     padding: 15px 30px;
@@ -130,44 +138,31 @@ a:hover {
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Stronger shadow for depth */
 }
 
 .primary-cta {
     background-color: var(--color-cta-orange);
     color: var(--color-primary-dark);
+    font-family: var(--font-heading);
     font-size: 1.4em;
     border: 3px solid var(--color-cta-orange);
-    transition: transform 0.2s ease, background-color 0.2s ease;
-}
-
-.primary-cta:hover {
-    background-color: #ff9833;
-    transform: scale(1.05);
-}
-
-.micro-text {
-    font-size: 0.9em;
-    color: #9e9e9e;
-    margin-bottom: 40px;
 }
 
 /* ======================================= */
-/* 4. Nothingbuttyler PLUS Feature */
+/* 4. Nothingbuttyler PLUS Feature (Content Blocks) */
 /* ======================================= */
 
 .plus-promo-section {
-    background-color: var(--color-secondary-dark); /* Subtle darker background */
+    background-color: var(--color-secondary-dark); /* Deep Navy Section BG */
     padding: 40px 20px;
-    border-radius: 10px;
     margin-bottom: 40px;
-    border: 1px solid rgba(0, 188, 212, 0.2); /* Subtle blue border */
 }
-
+/* Apply script font to the Plus header */
 .plus-promo-section h3 {
-    font-size: 1.8em;
-    margin-bottom: 25px;
-    color: var(--color-text-light);
+    font-family: var(--font-script);
+    font-size: 2.2em;
+    margin-bottom: 30px;
 }
 
 .plus-name {
@@ -176,36 +171,37 @@ a:hover {
 
 .plus-benefits {
     display: flex;
-    justify-content: space-around;
-    gap: 20px;
+    justify-content: center; /* Center the cards */
+    gap: 25px;
     margin-bottom: 30px;
     flex-wrap: wrap;
 }
 
+/* Benefit Cards: Mimicking Valodoka's square blocks */
 .benefit-card {
-    background-color: #2a2a2a;
-    padding: 20px;
-    border-radius: 8px;
-    flex: 1;
-    min-width: 200px;
-    text-align: center;
-    border-left: 3px solid var(--color-accent-blue);
+    background-color: #262626; /* Darker block color */
+    padding: 25px;
+    border-radius: 12px;
+    width: 250px; /* Fixed width for a block feel */
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid rgba(0, 188, 212, 0.4); /* Subtle blue border */
 }
 
 .benefit-card h4 {
     color: var(--color-accent-blue);
+    font-family: var(--font-heading);
     margin-bottom: 5px;
 }
 
 .secondary-cta {
     background-color: var(--color-accent-blue);
     color: var(--color-primary-dark);
+    font-family: var(--font-heading);
     font-size: 1em;
-    transition: background-color 0.3s ease;
-}
-
-.secondary-cta:hover {
-    background-color: #4dd0e1;
 }
 
 /* ======================================= */
@@ -218,7 +214,8 @@ a:hover {
 }
 
 .content-preview h3 {
-    color: var(--color-text-light);
+    font-family: var(--font-script);
+    font-size: 2.5em;
     margin-bottom: 10px;
 }
 
