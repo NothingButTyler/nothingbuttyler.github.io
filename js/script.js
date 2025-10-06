@@ -1,57 +1,35 @@
-// ===== Scroll Animations =====
-const sections = document.querySelectorAll(".section");
+// Sidebar toggle
+const sidebar = document.getElementById("sidebar");
+const hamburger = document.getElementById("hamburger");
+const closeBtn = document.getElementById("close-btn");
+const overlay = document.getElementById("overlay");
 
-const observer = new IntersectionObserver(entries => {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.classList.add("visible");
-    }
-  });
-}, { threshold: 0.2 });
-
-sections.forEach(section => {
-  section.classList.add("hidden");
-  observer.observe(section);
+hamburger.addEventListener("click", () => {
+  sidebar.classList.add("active");
+  overlay.classList.add("active");
 });
 
-// ===== Animated Subscriber Counter =====
-function animateCounter(id, start, end, duration) {
-  const element = document.getElementById(id);
-  let startTime = null;
+closeBtn.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
 
-  function updateCounter(currentTime) {
-    if (!startTime) startTime = currentTime;
-    const progress = Math.min((currentTime - startTime) / duration, 1);
-    element.textContent = Math.floor(progress * (end - start) + start) + "+ subs";
-    if (progress < 1) {
-      requestAnimationFrame(updateCounter);
-    }
+overlay.addEventListener("click", () => {
+  sidebar.classList.remove("active");
+  overlay.classList.remove("active");
+});
+
+// Live subscriber counter
+async function updateSubscribers() {
+  try {
+    const response = await fetch("https://api.socialcounts.org/youtube-live-subscriber-count/@NothingButTyler");
+    const data = await response.json();
+    const count = data.est_sub;
+    document.getElementById("subscriberCount").textContent = count.toLocaleString() + "+ subs";
+  } catch (err) {
+    console.error("Error fetching subscriber count:", err);
   }
-
-  requestAnimationFrame(updateCounter);
 }
 
-// Run subscriber counter animation when page loads
-window.addEventListener("load", () => {
-  animateCounter("sub-counter", 0, 7510, 2000);
-});
-
-// ===== Navbar Active Link Highlight =====
-const navLinks = document.querySelectorAll(".nav-links a");
-
-window.addEventListener("scroll", () => {
-  let current = "";
-  sections.forEach(section => {
-    const sectionTop = section.offsetTop - 60;
-    if (pageYOffset >= sectionTop) {
-      current = section.getAttribute("id");
-    }
-  });
-
-  navLinks.forEach(link => {
-    link.classList.remove("active");
-    if (link.getAttribute("href") === `#${current}`) {
-      link.classList.add("active");
-    }
-  });
-});
+updateSubscribers();
+setInterval(updateSubscribers, 30000);
