@@ -1,87 +1,81 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>NothingButTyler - Official Site</title>
-  <link rel="stylesheet" href="style.css" />
-  <script src="https://kit.fontawesome.com/yourkitid.js" crossorigin="anonymous"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>NothingButTyler | Official Site</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
 </head>
 <body>
+
   <!-- Navbar -->
-  <header>
-    <nav class="navbar">
-      <div class="logo">NothingButTyler</div>
-      <ul class="nav-links">
-        <li><a href="#about">About</a></li>
-        <li><a href="#youtube">YouTube</a></li>
-        <li><a href="#roblox">Roblox</a></li>
-        <li><a href="#hcr2">HCR2</a></li>
-        <li><a href="#plus">Plus</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-  </header>
+  <nav class="navbar">
+    <h1 class="logo">NothingButTyler</h1>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#plus">Plus</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <!-- Sidebar for mobile -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">✕</button>
+    <ul>
+      <li><a href="#about">About</a></li>
+      <li><a href="#youtube">YouTube</a></li>
+      <li><a href="#plus">Plus</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </div>
+  <div id="overlay"></div>
 
   <!-- Hero Section -->
-  <section class="hero">
+  <section class="hero" id="about">
     <div class="hero-content">
-      <img src="assets/images/avatar.png" alt="NothingButTyler Avatar" class="avatar" />
-      <h1>Hey, I’m <span class="highlight">NothingButTyler</span> 👋</h1>
-      <p>Roblox & Hill Climb Racing 2 YouTuber | 7.51k Subscribers | Kind • Caring • Supportive</p>
-      <a href="https://www.youtube.com/@NothingButTyler" target="_blank" class="btn primary">Subscribe on YouTube</a>
+      <h1>Hey, I’m <span style="color:#00aaff;">NothingButTyler</span> 👋</h1>
+      <p>Roblox & Hill Climb Racing 2 YouTuber</p>
+      <p>Known as Kind • Caring • Supportive</p>
+      <div class="counter" id="subscriberCount">7,510+</div>
+      <a href="https://www.youtube.com/@NothingButTyler" target="_blank" class="btn">Subscribe on YouTube</a>
     </div>
+    <img src="avatar.png" alt="NothingButTyler Avatar" class="avatar">
   </section>
 
-  <!-- About Section -->
-  <section id="about" class="section">
-    <h2>About Me</h2>
+  <!-- YouTube Section -->
+  <section id="youtube" class="section">
+    <h2>Latest YouTube Content</h2>
+    <p>Watch my latest Roblox and Hill Climb Racing 2 videos! Stay tuned for gameplay, fun moments, and tutorials.</p>
+    <a href="https://www.youtube.com/@NothingButTyler" target="_blank" class="btn">Visit Channel</a>
+  </section>
+
+  <!-- NothingButTyler Plus Section -->
+  <section id="plus" class="section">
+    <h2>NothingButTyler Plus</h2>
     <p>
-      I’m NothingButTyler, a YouTuber passionate about Roblox and Hill Climb Racing 2. 
-      My mission? To spread positivity, kindness, and fun through gaming content. 
-      Whether it’s creating epic gameplay or hanging out with fans, I want everyone to feel welcome here.
+      Want exclusive updates, sneak peeks, and more?  
+      Subscribe to <strong>NothingButTyler Plus</strong> – my free website subscription service for fans who want to stay closer to the community!
     </p>
+    <form class="plus-form">
+      <input type="email" placeholder="Enter your email" required>
+      <button type="submit">Join Plus for Free</button>
+    </form>
   </section>
 
-  <!-- YouTube Showcase -->
-  <section id="youtube" class="section alt">
-    <h2>Latest Videos</h2>
-    <div class="video-grid">
-      <iframe width="360" height="215" src="https://www.youtube.com/embed?list=UU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-      <iframe width="360" height="215" src="https://www.youtube.com/embed?list=UU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-      <iframe width="360" height="215" src="https://www.youtube.com/embed?list=UU" title="YouTube video player" frameborder="0" allowfullscreen></iframe>
-    </div>
-  </section>
-
-  <!-- Roblox Section -->
-  <section id="roblox" class="section">
-    <h2>Roblox Adventures</h2>
-    <p>I create fun Roblox gameplay videos, guides, and entertaining content for all players. Join me in the worlds I explore!</p>
-  </section>
-
-  <!-- HCR2 Section -->
-  <section id="hcr2" class="section alt">
-    <h2>Hill Climb Racing 2</h2>
-    <p>From crazy stunts to epic races, I cover it all in HCR2. Come race with me and see how far we can climb together!</p>
-  </section>
-
-  <!-- Plus Subscription -->
-  <section id="plus" class="section highlight">
-    <h2>NothingButTyler Plus 🚀</h2>
-    <p>Subscribe for free to NothingButTyler Plus and get exclusive updates, early sneak peeks, and special community perks.</p>
-    <a href="#" class="btn secondary">Join for Free</a>
-  </section>
-
-  <!-- Contact -->
+  <!-- Contact Section -->
   <section id="contact" class="section">
-    <h2>Get in Touch</h2>
-    <p>Have ideas, questions, or just want to say hi? Reach out to me anytime!</p>
-    <a href="mailto:your@email.com" class="btn primary">Contact Me</a>
+    <h2>Contact</h2>
+    <p>Want to collaborate or just say hi? Reach out via my socials or drop me an email anytime!</p>
+    <a href="mailto:yourname@email.com" class="btn">Contact Me</a>
   </section>
 
   <!-- Footer -->
   <footer>
-    <p>© 2025 NothingButTyler | Made with ❤️ for the community</p>
+    <p>© 2025 NothingButTyler | Built with 💙 by Tyler</p>
   </footer>
+
 </body>
 </html>
