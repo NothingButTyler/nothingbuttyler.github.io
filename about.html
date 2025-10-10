@@ -1,4 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About | NothingButTyler</title>
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+</head>
+<body>
 
+  <nav class="navbar">
+    <h1 class="logo">NothingButTyler</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html" class="active">About</a></li>
+      <li><a href="youtube.html">YouTube</a></li>
+      <li><a href="plus.html">Plus</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger">☰</button>
+  </nav>
+
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">✕</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="youtube.html">YouTube</a></li>
+      <li><a href="plus.html">Plus</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="overlay"></div>
+
+  <section class="section">
+    <h2>About Me</h2>
+    <p>Hey, I’m <strong>NothingButTyler</strong> — a Roblox & Hill Climb Racing 2 YouTuber who loves making fun, positive content for the community!</p>
+    <p>I’m known for being kind, caring, and supportive — and I aim to make every viewer feel part of something awesome!</p>
+  </section>
+
+  <footer>
+    <p>© 2025 NothingButTyler</p>
+  </footer>
+
+</body>
+</html>
+
+
+
+
+
+<!--Original page name: whoisnothingbuttyler.html
+    New page name: about.html
+-->
+
+<!-- ////// ORIGINAL PAGE (OLD, 11 MONTHS AGO FROM OCT 10 2025 /////// -->
+<!--
 <!DOCTYPE html>
 <html lang="en" dir="ltr">
 	<head>
@@ -24,15 +81,15 @@
 		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/style.css" />
 		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/custom.css" />
 		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-		<!-- Google fonts-->
+		<!-- Google fonts--
 		<link rel="preconnect" href="https://fonts.googleapis.com">
 		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-        <!--font awesome-->
+        <!--font awesome--
         <script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
-        <!--end of font awesome-->
+        <!--end of font awesome--
 
-<!-- Google tag (gtag.js) -->
+<!-- Google tag (gtag.js) --
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-MBSZ8QWCDE"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
@@ -43,7 +100,7 @@
 </script>
 
 
-<!--back to top btn-->
+<!--back to top btn--
 <button onclick="topFunction()" id="myBtn" title="Go back to the top.">&uarr;</button>
 <script>
 /* When the user clicks on the button, 
@@ -66,7 +123,7 @@ window.onclick = function(event) {
   }
 }
 </script>
-<!-- end of back to top btn-->
+<!-- end of back to top btn--
 
 <style>
 #myBtn {
@@ -110,7 +167,7 @@ function topFunction() {
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 }
 </script>
-<!--end of back to top btn-->
+<!--end of back to top btn--
 
 
 
@@ -120,7 +177,7 @@ function topFunction() {
 </head>
 	<body id="page-top" style="background: url('data:image/jpeg;base64,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'); background-size: cover;">
     
-    <!--
+    <!-
     
     
     
@@ -170,8 +227,8 @@ function topFunction() {
     
     
     
-    -->
-		<!-- Navigation-->
+    --
+		<!-- Navigation--
 		<nav class="navbar navbar-expand-lg navbar-dark top-nav" id="mainNav">
 			<div class="container">
 				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
@@ -190,7 +247,7 @@ function topFunction() {
   <a href="/plus">NothingButTyler+ (NEW)</a>
 </div>
 
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
+<!- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
 <div id="main">
   
 </div>
@@ -312,7 +369,7 @@ function closeNav() {
 
 
 <div class="banner-ad-wrapper"><div class="banner-ad-content" style="padding: 20px 0; text-align: center;">
-<!-- ads_ngang -->
+<!-- ads_ngang --
 
 
 </div>
@@ -321,7 +378,7 @@ function closeNav() {
 
 </div>	
 
-<!--Scroller-->
+<!--Scroller--
   <style>
 /* width */
 ::-webkit-scrollbar {
@@ -343,7 +400,7 @@ function closeNav() {
   background: #00ffff;
 }
 </style>
-<!--end of scroller--><!--
+<!--end of scroller--<--
 <--right click menu->
 <--right click menu style->
 	<style type="text/css"> 
@@ -404,8 +461,8 @@ function closeNav() {
 			} 
 		} 
 	</script> 
-    <-end of right click menu script->
-    <-right click menu items->
+    <-end of right click menu script-
+    <-right click menu items-
     	<div id="contextMenu" class="context-menu"
 		style="display:none"> 
 		<ul>
@@ -418,13 +475,13 @@ function closeNav() {
             <li><a href="/error137/pageclosed/robloxgfxs/pageclosed">Go to Roblox GFX's (Closed)</a></li>
 		</ul> 
 	</div> 
-    <--end of right click menu items->
-<--end of right click menu->
--->
-<!--container-->
+    <--end of right click menu items-
+<--end of right click menu-
+--
+<!--container--
 
 <center>
-<h1 class="section-title"><!-- May come soon !- - - > <font color="red">N</font><font color="orange">o</font><font color="yellow">t</font><font color="green">h</font><font color="blue">i</font><font color="purple">n</font><font color="pink">g</font><font color="red">B</font><font color="orange">u</font><font color="yellow">T</font><font color="green">y</font><font color="blue">l</font><font color="purple">e</font><font color="pink">r</font><font color="red"> O</font><font color="yellow">f</font><font color="green">f</font><font color="blue">i</font><font color="purple">c</font><font color="pink">i</font><font color="red">a</font><font color="orange">l</font><font color="yellow"> S</font><font color="green">i</font><font color="blue">t</font><font color="purple">e</font></h1> < - - -  --><font color="white">Who is NothingButTyler?</h1>
+<h1 class="section-title"><-- May come soon !- - - > <font color="red">N</font><font color="orange">o</font><font color="yellow">t</font><font color="green">h</font><font color="blue">i</font><font color="purple">n</font><font color="pink">g</font><font color="red">B</font><font color="orange">u</font><font color="yellow">T</font><font color="green">y</font><font color="blue">l</font><font color="purple">e</font><font color="pink">r</font><font color="red"> O</font><font color="yellow">f</font><font color="green">f</font><font color="blue">i</font><font color="purple">c</font><font color="pink">i</font><font color="red">a</font><font color="orange">l</font><font color="yellow"> S</font><font color="green">i</font><font color="blue">t</font><font color="purple">e</font></h1> < - - -  --><font color="white">Who is NothingButTyler?</h1>
 <p>NothingButTyler is a Roblox YouTuber with 7.51k subscribers. He is also a TikToker who does in real life trends and certain Roblox edits he uses to post on his YouTube channel. You can check out what other social media NothingButTyler has if you go to the footer and click on "social media".</p>
 
 <h1 class="section-title">Q&A Questions</h1>
@@ -448,27 +505,29 @@ Has NothingButTyler said tags in Roblox?</li><p>
 </font>
 
 
-</div> <!-- end container -->
+</div> <!-- end container --
 
 
 
 
 
-<!--Footer-->
+<!--Footer--
 	<div class="footer-copyright py-4">
 		<div class="container">
 		<p style="cursor: default;"><img src="https://avatars.githubusercontent.com/u/149272952?v=4&size=45">	NothingButTyler			</p><span class="dsb-panel">
 				<a href="/">Home</a> - <a href="/birthdaycountdown">NothingButTyler's Birthday Countdown</a> - <a href="/socialmedia">Social Media</a>			</span>
 		</div>
 	</div>
-    <!--end of footer-->
-    <!--all scripts-->
+    <!--end of footer--
+    <!--all scripts--
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/jquery-3.6.2.min.js"></script>
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/lazysizes.min.js"></script>
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/popper.min.js"></script>
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/script.js"></script>
 	<script type="text/javascript" src="//gamesuperhot.github.io/js/custom.js"></script>
-    <!--end of all scripts-->
+    --end of all scripts--
 	  </body>
 </html>
+
+-->
