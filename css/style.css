@@ -264,3 +264,39 @@ footer {
     display: block;
   }
 }
+
+/* Center all main call-to-action buttons consistently */
+.section .btn,
+.hero .btn {
+  display: inline-block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Center them horizontally */
+.section,
+.hero {
+  text-align: center;
+}
+
+/* Hover and focus effects for interactivity */
+.btn:hover,
+.btn:focus {
+  background-color: #007acc;
+  transform: translateY(-2px);
+}
+
+/* Make sure no weird padding or text offset */
+.section p {
+  text-align: center;
+  margin-bottom: 12px;
+}
