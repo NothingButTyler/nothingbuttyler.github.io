@@ -43,7 +43,7 @@
 
     <div class="form-container">
       <iframe
-        src="YOUR_GOOGLE_FORM_EMBED_URL_HERE"
+        src="https://docs.google.com/forms/d/e/1FAIpQLSczlRW0MYnbOjFOLrwbxp3QJvvXKYZRwOHMh-jDCqVUKK589w/viewform?embedded=true"
         width="100%"
         height="800"
         frameborder="0"
@@ -61,3 +61,488 @@
   </footer>
 </body>
 </html>
+
+
+
+
+
+
+
+
+<style>
+
+/* ===== Reset ===== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* ===== Global Styles ===== */
+body {
+  font-family: 'Poppins', sans-serif;
+  background: #0a0f29;
+  color: #fff;
+  line-height: 1.6;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+/* ===== Navbar ===== */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #0d1238;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+
+.logo {
+  color: #00aaff;
+  font-size: 1.4rem;
+  font-weight: bold;
+}
+
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.nav-links li a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.3s;
+}
+
+.nav-links li a:hover,
+.nav-links li a.active {
+  color: #00aaff;
+}
+
+/* Hamburger button for mobile */
+.hamburger {
+  display: none;
+  font-size: 1.8rem;
+  color: #00aaff;
+  background: none;
+  border: none;
+  cursor: pointer;
+}
+
+/* ===== Sidebar ===== */
+.sidebar {
+  position: fixed;
+  top: 0;
+  right: -260px;
+  height: 100%;
+  width: 260px;
+  background: #0a0f29;
+  color: #fff;
+  padding: 2rem 1.5rem;
+  transition: right 0.3s ease-in-out;
+  z-index: 2000;
+}
+
+.sidebar.active {
+  right: 0;
+}
+
+.sidebar ul {
+  list-style: none;
+  margin-top: 2rem;
+  padding: 0;
+}
+
+.sidebar ul li {
+  margin: 1.2rem 0;
+}
+
+.sidebar ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.2rem;
+  transition: color 0.3s;
+}
+
+.sidebar ul li a:hover {
+  color: #00aaff;
+}
+
+.close-btn {
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  float: right;
+}
+
+/* Overlay behind sidebar */
+#overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1500;
+  display: none;
+}
+
+#overlay.active {
+  display: block;
+}
+
+/* ===== Hero Section ===== */
+.hero {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 4rem 1rem;
+  background: linear-gradient(to bottom, #0d1238, #0a0f29);
+}
+
+.hero-content {
+  max-width: 600px;
+}
+
+.hero h1 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+}
+
+.hero p {
+  font-size: 1rem;
+  margin: 0.5rem 0;
+}
+
+.counter {
+  font-size: 1.3rem;
+  margin: 1rem 0;
+  color: #00ffcc;
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 255, 204, 0.7);
+}
+
+.avatar {
+  width: 150px;
+  border-radius: 50%;
+  margin-top: 1.5rem;
+}
+
+/* Side-by-side on desktop */
+@media (min-width: 768px) {
+  .hero {
+    flex-direction: row;
+    text-align: left;
+  }
+  .hero-content {
+    flex: 1;
+    padding-right: 2rem;
+  }
+  .avatar {
+    margin-top: 0;
+  }
+}
+
+/* ===== Sections ===== */
+.section {
+  padding: 4rem 2rem;
+  max-width: 1000px;
+  margin: auto;
+}
+
+.section h2 {
+  color: #00aaff;
+  font-size: 1.8rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
+.section p {
+  text-align: center;
+  max-width: 700px;
+  margin: 0 auto 1.5rem;
+}
+
+/* ===== Buttons ===== */
+.btn {
+  display: inline-block;
+  padding: 0.8rem 1.2rem;
+  background: #00aaff;
+  color: #fff;
+  border-radius: 8px;
+  text-decoration: none;
+  font-weight: bold;
+  transition: background 0.3s;
+}
+
+.btn:hover {
+  background: #0088cc;
+}
+
+/* ===== Plus Form ===== */
+.plus-form {
+  display: flex;
+  flex-direction: column;
+  gap: 0.8rem;
+  max-width: 300px;
+  margin: 1rem auto;
+}
+
+.plus-form input {
+  padding: 0.6rem;
+  border: none;
+  border-radius: 6px;
+  outline: none;
+}
+
+.plus-form button {
+  padding: 0.6rem;
+  background: #00aaff;
+  border: none;
+  border-radius: 6px;
+  color: #fff;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.plus-form button:hover {
+  background: #0088cc;
+}
+
+/* ===== Footer ===== */
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  background: #0d1238;
+  font-size: 0.9rem;
+  color: #aaa;
+}
+
+/* ===== Mobile Fixes ===== */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+}
+
+/* Center all main call-to-action buttons consistently */
+.section .btn,
+.hero .btn {
+  display: inline-block;
+  text-align: center;
+  margin: 20px auto;
+  padding: 12px 28px;
+  font-size: 1rem;
+  font-weight: 600;
+  background-color: #0099ff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  text-decoration: none;
+  transition: background 0.3s ease, transform 0.2s ease;
+}
+
+/* Center them horizontally */
+.section,
+.hero {
+  text-align: center;
+}
+
+/* Hover and focus effects for interactivity */
+.btn:hover,
+.btn:focus {
+  background-color: #007acc;
+  transform: translateY(-2px);
+}
+
+/* Make sure no weird padding or text offset */
+.section p {
+  text-align: center;
+  margin-bottom: 12px;
+}
+</style>
+<script>
+
+
+
+// script.js (robust, replaces previous)
+document.addEventListener("DOMContentLoaded", () => {
+  /* -------------------------------
+     Helper: safe element getter
+     ------------------------------- */
+  const $ = (id) => document.getElementById(id);
+
+  /* -------------------------------
+     SIDEBAR / HAMBURGER
+     ------------------------------- */
+  const hamburger = $("hamburger");
+  const sidebar = $("sidebar");
+  const closeBtn = $("close-btn");
+
+  // ensure overlay exists (create if not)
+  let overlay = $("overlay");
+  if (!overlay) {
+    overlay = document.createElement("div");
+    overlay.id = "overlay";
+    document.body.appendChild(overlay);
+  }
+
+  // open/close helpers (no-op if sidebar missing)
+  const openSidebar = () => {
+    if (!sidebar) return;
+    sidebar.classList.add("active");
+    overlay.classList.add("active");
+    document.body.style.overflow = "hidden"; // stop background scroll
+  };
+  const closeSidebar = () => {
+    if (!sidebar) return;
+    sidebar.classList.remove("active");
+    overlay.classList.remove("active");
+    document.body.style.overflow = ""; // restore scroll
+  };
+
+  // safe event wiring
+  if (hamburger) hamburger.addEventListener("click", openSidebar);
+  if (closeBtn) closeBtn.addEventListener("click", closeSidebar);
+  overlay.addEventListener("click", closeSidebar);
+
+  // close sidebar when clicking its links (helps on mobile)
+  document.querySelectorAll(".sidebar a").forEach(a => {
+    a.addEventListener("click", () => {
+      closeSidebar();
+    });
+  });
+
+  // close with Escape key
+  document.addEventListener("keydown", (e) => {
+    if (e.key === "Escape") closeSidebar();
+  });
+
+  /* -------------------------------
+     SUBSCRIBER COUNTER (live + fallback)
+     ------------------------------- */
+  const subscriberElem = $("subscriberCount"); // must match your HTML id
+
+  function animateCounter(element, start, end, duration = 1400) {
+    if (!element) return;
+    const startTime = performance.now();
+    const step = (now) => {
+      const progress = Math.min((now - startTime) / duration, 1);
+      const value = Math.floor(progress * (end - start) + start);
+      element.textContent = value.toLocaleString() + (end >= 1000 ? "+ subscribers" : " subscribers");
+      if (progress < 1) requestAnimationFrame(step);
+    };
+    requestAnimationFrame(step);
+  }
+
+  async function fetchLiveSubscribers() {
+    // NOTE: some free APIs or endpoints may be blocked by CORS or go down.
+    // We try one commonly-seen endpoint, but fall back cleanly on failure.
+    const fallback = 7510;
+    if (!subscriberElem) return;
+
+    try {
+      // Try socialcounts endpoint used earlier (may or may not work depending on CORS)
+      const endpoint = "https://api.socialcounts.org/youtube-live-subscriber-count/@NothingButTyler";
+      const res = await fetch(endpoint, { cache: "no-store" });
+      if (!res.ok) throw new Error("non-ok response");
+      const json = await res.json();
+
+      // Possible property names to look for (different APIs use different names)
+      const possible =
+        json?.est_sub || json?.subscribers || json?.subscriberCount || json?.count || json?.sub_count;
+      const count = typeof possible === "number" ? possible
+                   : (typeof json === "number" ? json : null);
+
+      if (count && Number.isFinite(count) && count > 0) {
+        animateCounter(subscriberElem, 0, Math.round(count), 1000 + Math.min(2000, Math.round(count / 5)));
+        return;
+      } else {
+        throw new Error("invalid payload");
+      }
+    } catch (err) {
+      // console warning for debugging; fallback to static count animation
+      console.warn("Live subscriber fetch failed (CORS / offline / API change). Falling back. Error:", err);
+      animateCounter(subscriberElem, 0, fallback, 1200);
+    }
+  }
+
+  // run once now, then try again every 30s
+  fetchLiveSubscribers();
+  setInterval(fetchLiveSubscribers, 30000);
+
+  /* -------------------------------
+     SECTION FADE-IN ON SCROLL
+     ------------------------------- */
+  const sections = document.querySelectorAll(".section, .hero");
+  if ("IntersectionObserver" in window) {
+    const io = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("visible");
+        }
+      });
+    }, { threshold: 0.12 });
+
+    sections.forEach(s => {
+      // start hidden (if not already)
+      if (!s.classList.contains("visible")) s.classList.add("hidden");
+      io.observe(s);
+    });
+  } else {
+    // fallback: just reveal everything
+    sections.forEach(s => s.classList.add("visible"));
+  }
+
+  /* -------------------------------
+     NAVBAR ACTIVE LINK HIGHLIGHT
+     ------------------------------- */
+  const navLinks = document.querySelectorAll(".nav-links a");
+  const sectsWithId = Array.from(document.querySelectorAll("section[id]"));
+
+  function updateActiveNav() {
+    const scrollY = window.pageYOffset;
+    let currentId = "";
+    for (const sec of sectsWithId) {
+      const top = sec.offsetTop - 80;
+      if (scrollY >= top) currentId = sec.id;
+    }
+    navLinks.forEach(a => {
+      a.classList.toggle("active", a.getAttribute("href") === `#${currentId}`);
+    });
+  }
+
+  updateActiveNav();
+  window.addEventListener("scroll", updateActiveNav);
+  window.addEventListener("resize", updateActiveNav);
+
+  /* -------------------------------
+     Debugging tip (only logs if something missing)
+     ------------------------------- */
+  setTimeout(() => {
+    const missing = [];
+    if (!hamburger) missing.push("#hamburger");
+    if (!sidebar) missing.push("#sidebar");
+    if (!closeBtn) missing.push("#close-btn");
+    if (!subscriberElem) missing.push("#subscriberCount");
+    if (missing.length) {
+      console.info("script.js loaded — missing elements:", missing.join(", "), "\nIf any are intentional, ignore this.");
+    }
+  }, 400);
+});
+
+
+</script>
