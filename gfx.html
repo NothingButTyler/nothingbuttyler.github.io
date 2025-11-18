@@ -1,6 +1,76 @@
 <!DOCTYPE html>
 <html lang="en">
+<head><!DOCTYPE html>
+<html lang="en">
 <head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Request Free GFX | NothingButTyler</title>
+  <link rel="stylesheet" href="style.css" />
+  <script defer src="script.js"></script>
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1 class="logo">NothingButTyler</h1>
+    <ul class="nav-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="youtube.html">YouTube</a></li>
+      <li><a href="plus.html">Plus</a></li>
+      <li><a href="gfx.html" class="active">GFX</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+    <button class="hamburger" id="hamburger"><span></span><span></span><span></span></button>
+  </nav>
+
+  <!-- Sidebar -->
+  <div class="sidebar" id="sidebar">
+    <button class="close-btn" id="close-btn">✕</button>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="youtube.html">YouTube</a></li>
+      <li><a href="plus.html">Plus</a></li>
+      <li><a href="gfx.html">GFX</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </div>
+  <div id="overlay"></div>
+
+  <section class="section">
+    <h2>Request Your Free Roblox GFX 🎨</h2>
+    <p>Fill out the form below to request your free custom GFX!</p>
+
+    <!-- Loading Animation -->
+    <div id="loadingScreen" class="loading-screen">
+      <div class="spinner"></div>
+      <h3>Loading GFX Request Form...</h3>
+      <p>Note: if this doesn't load in under 5 seconds, try reloading the page or restarting yo</p>
+    </div>
+
+    <div class="form-container" id="formContainer" style="display:none;">
+      <iframe
+        id="gfxFormFrame"
+        src="https://forms.gle/22Y7fnBowwyrxiZM7"
+        width="100%"
+        height="800"
+        frameborder="0"
+        marginheight="0"
+        marginwidth="0"
+        style="border-radius: 12px; background-color: #0b0f25;"
+      ></iframe>
+    </div>
+
+  </section>
+
+  <footer>
+    <p>© 2025 NothingButTyler</p>
+  </footer>
+
+</body>
+</html>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Request Free GFX | NothingButTyler</title>
