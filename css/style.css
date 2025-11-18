@@ -67,60 +67,53 @@ html {
 .sidebar {
   position: fixed;
   top: 0;
-  right: -260px;
+  right: 0;
+  width: 300px;           /* you can adjust this */
+  max-width: 80vw;
   height: 100%;
-  width: 260px;
-  background: #0a0f29;
-  color: #fff;
-  padding: 2rem 1.5rem;
-  transition: right 0.3s ease-in-out;
-  z-index: 2000;
+  background: #0f1530;
+  padding: 20px;
+  transform: translateX(100%);     /* completely hidden */
+  transition: transform 0.35s ease-in-out;
+  z-index: 1000;
 }
 
 .sidebar.active {
-  right: 0;
+  transform: translateX(0);        /* slide into view */
 }
+
 
 .sidebar ul {
   list-style: none;
-  margin-top: 2rem;
   padding: 0;
 }
 
 .sidebar ul li {
-  margin: 1.2rem 0;
+  margin: 20px 0;
 }
 
-.sidebar ul li a {
-  color: #fff;
+.sidebar a {
+  color: white;
   text-decoration: none;
   font-size: 1.2rem;
-  transition: color 0.3s;
-}
-
-.sidebar ul li a:hover {
-  color: #00aaff;
 }
 
 .close-btn {
   background: none;
   border: none;
+  color: white;
   font-size: 1.5rem;
-  color: #fff;
-  cursor: pointer;
   float: right;
+  cursor: pointer;
 }
 
-/* Overlay behind sidebar */
 #overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.6);
-  z-index: 1500;
   display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.5);
+  z-index: 900;
 }
 
 #overlay.active {
