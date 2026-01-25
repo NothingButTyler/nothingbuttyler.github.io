@@ -1,417 +1,330 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr">
-	<head>
-		<link rel="shortcut icon" href="https://avatars.githubusercontent.com/u/149272952" />
-		<meta charset="utf-8">
-		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=yes" />
-		<title>NothingButTyler's Birthday Countdown | NothingButTyler Official Site</title>
-				<meta name="description" content="You've seen the Roblox YouTuber and TikToker, now he has a website: NothingButTyler Official Site! Check it out today!">
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Birthday Countdown | NothingButTyler</title>
+    
+    <meta property="og:title" content="Birthday Countdown | NothingButTyler">
+    <meta property="og:description" content="The countdown to the next milestone.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1519681393784-d120267933ba">
+    <meta name="theme-color" content="#38bdf8">
 
-			<meta property="og:url" content="valodokagames.github.io" />
-      <meta property="og:image:width" content="200 px" />
-      <meta property="og:image:height" content="200 px" />
-      <meta property="og:title" content="NothingButTyler Official Site" />
-      <meta property="og:site_name" content="NothingButTyler Official Site" />
-      <meta property="og:description" content="You've seen the Roblox YouTuber and TikToker, now he has a website: NothingButTyler Official Site! Check it out today!" />
-      <meta property="og:type" content="website" />
-      <meta property="og:image" content="https://avatars.githubusercontent.com/u/149272952">
+    <script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+    
+    <style>
+        :root {
+            --snow: #f8fafc; --ice-blue: #38bdf8; --deep-midnight: #0f172a;
+            --glass: rgba(56, 189, 248, 0.05); --glass-border: rgba(56, 189, 248, 0.2);
+        }
 
+        /* CURSOR SYSTEM */
+        * { cursor: none; }
+        #cursor-dot, #cursor-outline { position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
+        #cursor-dot { width: 8px; height: 8px; background: var(--ice-blue); border-radius: 50%; box-shadow: 0 0 10px var(--ice-blue); }
+        #cursor-outline { width: 30px; height: 30px; border: 2px solid var(--ice-blue); border-radius: 50%; transition: transform 0.15s ease-out; opacity: 0.5; }
+        @media (pointer: coarse), (max-width: 768px) { #cursor-dot, #cursor-outline { display: none !important; } * { cursor: auto !important; } }
 
-						<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/bootstrap.min.css" />
-		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/jquery-comments.css" />
-		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/user.css" />
-		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/style.css" />
-		<link rel="stylesheet" type="text/css" href="//gamesuperhot.github.io/css/custom.css" />
-		<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css" />
-		<!-- Google fonts-->
-		<link rel="preconnect" href="https://fonts.googleapis.com">
-		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-		<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap" rel="stylesheet">
-        <!--font awesome-->
-        <script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
-        <!--end of font awesome-->
-
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-MBSZ8QWCDE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-
-  gtag('config', 'G-MBSZ8QWCDE');
-</script>
-
-
-<!--back to top btn-->
-<button onclick="topFunction()" id="myBtn" title="Go back to the top.">&uarr;</button>
-<script>
-/* When the user clicks on the button, 
-toggle between hiding and showing the dropdown content */
-function myFunction() {
-  document.getElementById("myDropdown").classList.toggle("show");
-}
-
-// Close the dropdown if the user clicks outside of it
-window.onclick = function(event) {
-  if (!event.target.matches('.dropbtn')) {
-    var dropdowns = document.getElementsByClassName("dropdown-content");
-    var i;
-    for (i = 0; i < dropdowns.length; i++) {
-      var openDropdown = dropdowns[i];
-      if (openDropdown.classList.contains('show')) {
-        openDropdown.classList.remove('show');
-      }
-    }
-  }
-}
-</script>
-<!-- end of back to top btn-->
-
-<style>
-#myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 20px; /* Place the button at the bottom of the page */
-  right: 30px; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  border: none; /* Remove borders */
-  outline: none; /* Remove outline */
-  background-color: red; /* Set a background color */
-  color: white; /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 15px; /* Some padding */
-  border-radius: 10px; /* Rounded corners */
-  font-size: 18px; /* Increase font size */
-}
-
-#myBtn:hover {
-  background-color: #555; /* Add a dark-grey background on hover */
-}
-</style>
-<script>
-// Get the button:
-let mybutton = document.getElementById("myBtn");
-
-// When the user scrolls down 20px from the top of the document, show the button
-window.onscroll = function() {scrollFunction()};
-
-function scrollFunction() {
-  if (document.body.scrollTop > 20 || document.documentElement.scrollTop > 20) {
-    mybutton.style.display = "block";
-  } else {
-    mybutton.style.display = "none";
-  }
-}
-
-// When the user clicks on the button, scroll to the top of the document
-function topFunction() {
-  document.body.scrollTop = 0; // For Safari
-  document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
-}
-</script>
-<!--end of back to top btn-->
-
-
-
-
-
-
-</head>
-	<body id="page-top" style="background: url('data:image/jpeg;base64,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'); background-size: cover;">
-		<!-- Navigation-->
-		<nav class="navbar navbar-expand-lg navbar-dark top-nav" id="mainNav">
-			<div class="container">
-				<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav-menu" aria-controls="nav-menu" aria-expanded="false" aria-label="Toggle navigation">
-					<span class="navbar-toggler-icon" onclick="openNav()"></span>
-				</button>
-                
-                
-<div id="mySidenav" class="sidenav">
-  <a class="closebtn" onclick="closeNav()">&times;</a>
-  <a href="/whoisnothingbuttyler">Who is NothingButTyler?</a>
-  <a href="/birthdaycountdown">NothingButTyler's Birthday Countdown</a>
-  <a href="/socialmedia">Social Media</a>
-  <a href="/contactnothingbuttyler">Contact NothingButTyler</a>
-  <a href="/funfacts">Fun Facts about NothingButTyler</a>
-  <a href="/otherwebsites">Other Websites NothingButTyler Made</a>
-  <a href="/error137/pageclosed/robloxgfxs/pageclosed">Roblox GFX's (Closed)</a>
-  <a href="/forms">Forms</a>
-</div>
-
-<!-- Add all page content inside this div if you want the side nav to push page content to the right (not used if you only want the sidenav to sit on top of the page -->
-<div id="main">
-  
-</div>
-<style>
-/* The side navigation menu */
-.sidenav {
-  height: 100%; /* 100% Full-height */
-  width: 0; /* 0 width - change this with JavaScript */
-  position: fixed; /* Stay in place */
-  z-index: 1; /* Stay on top */
-  top: 0; /* Stay at the top */
-  right: 0;
-  background-color: #111; /* Black*/
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding-top: 60px; /* Place content 60px from the top */
-  transition: 0.5s; /* 0.5 second transition effect to slide in the sidenav */
-}
-
-/* The navigation menu links */
-.sidenav a {
-  padding: 8px 8px 8px 25px;
-  text-decoration: none;
-  font-size: 25px;
-  color: #818181;
-  display: block;
-  transition: 0.3s;
-}
-
-/* When you mouse over the navigation links, change their color */
-.sidenav a:hover {
-  color: #f1f1f1;
-}
-
-/* Position and style the close button (top right corner) */
-.sidenav .closebtn {
-  position: absolute;
-  top: 0;
-  right: 25px;
-  font-size: 36px;
-  margin-left: 50px;
-  cursor: pointer;
-}
-
-/* Style page content - use this if you want to push the page content to the right when you open the side navigation */
-#main {
-  transition: margin-left .5s;
-  padding: 20px;
-}
-
-/* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
-@media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
-}
-</style>
-<script>
-/* Set the width of the side navigation to 250px */
-function openNav() {
-  document.getElementById("mySidenav").style.width = "250px";
-}
-
-/* Set the width of the side navigation to 0 */
-function closeNav() {
-  document.getElementById("mySidenav").style.width = "0";
-}
-</script>
-
-
-				<a class="navbar-brand js-scroll-trigger" href="/">
-          <img src="https://avatars.githubusercontent.com/u/149272952?v=4&size=50"></img>
-        </a>
-	
-
-				<div class="navbar-collapse collapse" id="nav-menu">
-
-		
-
-				</div>
-				<div class="d-none d-lg-block">
-			
-        <ul class="navbar-nav">
-						<li class="nav-item "><a class="nav-link " href="/whoisnothingbuttyler">Who is NothingButTyler?</a></li>
-                          <li class="nav-item "><a class="nav-link " href="/birthdaycountdown">NothingButTyler's Birthday Countdown</a></li>
-						<li class="nav-item "><a class="nav-link " href="/socialmedia">Social Media</a></li>
-						<li class="nav-item "><a class="nav-link " href="/contactnothingbuttyler">Contact NothingBtTyler</a></li>
-						<li class="nav-item "><a class="nav-link " href="/funfacts">Fun Facts about NothingButTyler</a></li>
-						<li class="nav-item "><a class="nav-link " href="/otherwebsites">Other Websites NothingButTyler Made</a></li>
-            
-
-  
-
+        body { margin: 0; font-family: 'Inter', sans-serif; background: #0f172a; color: var(--snow); line-height: 1.6; overflow-x: hidden; }
+        .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
+        .reveal.active { opacity: 1; transform: translateY(0); }
         
-
-
-            <li class="nav-item dropdown"><a class="nav-link dropdown-toggle" href="#" data-bs-toggle="dropdown"> &#10247;</a>
-              <ul role="menu" class="dropdown-menu">
-                <li><a class="dropdown-item" href="/error137/pageclosed/robloxgfxs/pageclosed">Roblox GFX's (Closed)</a></li>
-      
-                <li><a class="dropdown-item" href="/forms">Forms</a></li>
-
-            </ul>
-            </li>
-
-          </ul>
-
-
-
-
-				</div>
-			</div>
-		</nav>		
-
-
-
-
-
-
-
-
-<div class="container">
-
-
-<div class="banner-ad-wrapper"><div class="banner-ad-content" style="padding: 20px 0; text-align: center;">
-<!-- ads_ngang -->
-
-
-</div>
-
-
-
-</div>	
-
-<!--Scroller-->
-  <style>
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
+        .mountain-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2000') center/cover; opacity: 0.22; z-index: -2; }
+        #snow-canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
+        
+/* THE CONTAINER FIX - Resetting the stage */
+.container { 
+    max-width: 850px; 
+    margin: 0 auto; 
+    /* Increased top padding to push the "The Next Peak" title down 
+       so it starts exactly where it does in Image 2 */
+    padding: 140px 20px 40px; 
+    position: relative; 
+    z-index: 10; 
 }
 
-/* Track */
-::-webkit-scrollbar-track {
-  background: #808080;
+/* HERO HEADER - Creating breathing room */
+header.hero { 
+    text-align: center; 
+    /* Added a larger bottom margin to push the countdown card down */
+    margin-bottom: 80px; 
 }
 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #0000FF;
+h1 { 
+    font-weight: 800; 
+    font-size: 4.2rem; /* Slightly larger to match the 'The Peak' energy */
+    margin: 0; 
+    letter-spacing: -2px; 
 }
 
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #00ffff;
+#tagline { 
+    color: var(--ice-blue); 
+    font-weight: 700; 
+    text-transform: uppercase; 
+    letter-spacing: 6px; 
+    font-size: 1rem; 
+    /* Reduced margin-bottom here since the header.hero handle the big gap */
+    margin: 20px 0 0; 
 }
-</style>
-<!--end of scroller-->
-<!--right click menu-->
-<!--right click menu style-->
-	<style type="text/css"> 
-		.context-menu { 
-			position: absolute; 
-			text-align: center; 
-			background: white; 
-			border: 1px solid black; 
-		} 
-
-		.context-menu ul { 
-			padding: 0px; 
-			margin: 0px; 
-			min-width: 150px; 
-			list-style: none; 
-		} 
-
-		.context-menu ul li { 
-			padding-bottom: 7px; 
-			padding-top: 7px; 
-			border: 1px solid black; 
-		} 
-
-		.context-menu ul li a { 
-			text-decoration: none; 
-			color: black; 
-		} 
-
-		.context-menu ul li:hover { 
-			background: lightblue; 
-		} 
-	</style> 
-
-<!--end of right click menu style-->
-<!--right click menu script-->
-	<script> 
-		document.onclick = hideMenu; 
-		document.oncontextmenu = rightClick; 
-
-		function hideMenu() { 
-			document.getElementById( 
-				"contextMenu").style.display = "none" 
-		} 
-
-		function rightClick(e) { 
-			e.preventDefault(); 
-
-			if (document.getElementById( 
-				"contextMenu").style.display == "block") 
-				hideMenu(); 
-			else { 
-				var menu = document 
-					.getElementById("contextMenu") 
-					
-				menu.style.display = 'block'; 
-				menu.style.left = e.pageX + "px"; 
-				menu.style.top = e.pageY + "px"; 
-			} 
-		} 
-	</script> 
-    <!--end of right click menu script-->
-    <!--right click menu items-->
-    	<div id="contextMenu" class="context-menu"
-		style="display:none"> 
-		<ul> 
-			<li><a href="/">Go to the homepage</a></li> 
-			<li><a href="/whoisnothingbuttyler">Go to Who is NothingButTyler?</a></li> 
-			<li><a href="/birthdaycountdown">Go to NothingButTyler's Birthday Countdown</a></li> 
-			<li><a href="/socialmedia">Go to Social Media</a></li> 
-			<li><a href="/contactnothingbuttyler">Go to Contact NothingButTyler</a></li> 
-			<li><a href="/funfacts">Go to Fun Facts</a></li> 
-			<li><a href="/otherwebsites">Go to Other Websites NothingButTyler Made</a></li> 
-            <li><a href="/error137/pageclosed/robloxgfxs/pageclosed">Go to Roblox GFX's (Closed)</a></li>
-            <li><a href="/forms">Go to Forms</a></li>
-		</ul> 
-	</div> 
-    <!--end of right click menu items-->
-<!--end of right click menu-->
-
-<!--container-->
-
-<h1 class="section-title"><center>NothingButTyler's Birthday Countdown</center></h1>
-<center>
-<!--
-<iframe width="427" height="220" src="https://w2.countingdownto.com/5520739" frameborder="0"></iframe>
--->
-<!--countingdownto newer iframe-->
 
 
-<iframe src="https://w2.countingdownto.com/6775150" frameborder="0" style="width:100%;height:100%;aspect-ratio:16/7;background-color:#007FFF;border-radius:5px;"></iframe><!--end of countingdownto newer iframe-->
-</center>
+/* FIXED NAVIGATION */
+nav {
+    position: fixed; 
+    gap: 25px;
+    top: 0; 
+    width: 100%; 
+    z-index: 2000;
+    background: rgba(15, 23, 42, 0.95); 
+    backdrop-filter: blur(15px);
+    border-bottom: 2px solid var(--ice-blue);
+    /* The Disappearing Act */
+    transform: translateY(-100%); 
+    opacity: 0;
+    transition: 0.4s; /* cubic-bezier(0.175, 0.885, 0.32, 1.275); /* Added a slight "bounce" effect */
+}
 
-<!--end of countingdownto newer iframe-->
-</center>
+nav.scrolled { 
+    transform: translateY(0); 
+    opacity: 1; 
+}
 
-<p>Source used for countdown: <a href="//countingdownto.com">CountingDownTo</a> (edited by NothingButTyler)</p>
+/* UPDATED NAVIGATION SPACING */
+.nav-container { 
+    max-width: 1100px; 
+    margin: 0 auto; 
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 12px 25px; 
+}
+    
+/* CLEAN NAVIGATION LINKS */
+.nav-links { 
+    display: flex; 
+    gap: 25px; 
+    align-items: center;
+}
 
-</div> <!-- end container -->
+.nav-link { 
+    text-decoration: none; 
+    color: white; /* Always white by default */
+    font-weight: 800; 
+    font-size: 0.75rem; 
+    text-transform: uppercase; 
+    letter-spacing: 1.5px; 
+    opacity: 0.7; 
+    transition: 0.3s ease;
+    border-bottom: none !important; /* Forces no underscore */
+}
+
+/* Hover State - Only turns Ice Blue here */
+.nav-link:hover {
+    opacity: 1;
+    color: var(--ice-blue) !important;
+    text-shadow: 0 0 10px var(--ice-blue); /* Optional: adds a subtle glow */
+}
+
+/* Active Page - Keep it bright white or blue without the line */
+.active-page { 
+    color: var(--ice-blue) !important; 
+    opacity: 1 !important; 
+    border-bottom: none !important; /* Ensures no underscore on active page */
+}
 
 
 
+        .nav-brand { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .nav-brand i { color: var(--ice-blue); filter: drop-shadow(0 0 12px var(--ice-blue)); }
+        .nav-links { display: flex; gap: 20px; }
+        .nav-link { text-decoration: none; color: white; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; }
+        .active-page { color: var(--ice-blue) !important; opacity: 1 !important; }
 
+        /* HERO & BRAND */
+        header { text-align: center; padding: 100px 0 20px; }
+        h1 { font-weight: 800; font-size: 4.2rem; margin: 0; letter-spacing: -2px; }
+        #tagline { color: var(--ice-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; font-size: 1rem; margin: 30px 0 85px; }
 
-<!--Footer-->
-	<div class="footer-copyright py-4">
-		<div class="container">
-		<p><img src="https://avatars.githubusercontent.com/u/149272952?v=4&size=45">	NothingButTyler			</p><span class="dsb-panel">
-				<a href="/">Home</a> - <a href="/contactnothingbuttyler">Contact NothingButTyler</a> - <a href="/socialmedia">Social Media</a>			</span>
-		</div>
-	</div>
-    <!--end of footer-->
-    <!--all scripts-->
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/jquery-3.6.2.min.js"></script>
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/lazysizes.min.js"></script>
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/popper.min.js"></script>
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/bootstrap.min.js"></script>
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/script.js"></script>
-	<script type="text/javascript" src="//gamesuperhot.github.io/js/custom.js"></script>
-    <!--end of all scripts-->
-	  </body>
+        /* CARDS */
+        .section-card { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 28px; margin-bottom: 35px; backdrop-filter: blur(10px); }
+        .section-card p a { 
+            position: relative; z-index: 100; color: var(--ice-blue) !important; text-decoration: none; font-weight: 700; 
+            transition: 0.3s; border-bottom: 2px solid rgba(56, 189, 248, 0.3); pointer-events: auto !important; 
+        }
+        .section-card p a:hover { text-shadow: 0 0 15px var(--ice-blue); border-bottom: 2px solid var(--ice-blue); }
+
+        /* TIMER & BADGE */
+        .timer-display { display: flex; justify-content: center; gap: 30px; flex-wrap: wrap; }
+        .timer-box { text-align: center; min-width: 80px; }
+        .timer-num { display: block; font-size: 3.5rem; font-weight: 800; color: var(--ice-blue); line-height: 1; }
+        .timer-label { font-size: 0.7rem; text-transform: uppercase; opacity: 0.5; letter-spacing: 2px; }
+        
+        .live-badge { font-size: 0.6rem; background: rgba(56, 189, 248, 0.2); color: var(--ice-blue); padding: 2px 8px; border-radius: 4px; border: 1px solid var(--ice-blue); vertical-align: middle; margin-left: 10px; animation: blink 2s infinite; }
+        @keyframes blink { 0%, 100% { opacity: 1; } 50% { opacity: 0.3; } }
+        
+        #birthday-message { display: none; text-align: center; font-size: 2rem; font-weight: 800; color: var(--ice-blue); text-shadow: 0 0 15px var(--ice-blue); padding: 20px; }
+
+        /* FOOTER */
+        .social-links { display: flex; justify-content: center; align-items: center; gap: 30px; margin: 80px 0 20px; }
+        .social-links a { color: white; font-size: 2rem; opacity: 0.6; transition: 0.3s ease; }
+        .social-links a:hover { opacity: 1; color: var(--ice-blue); filter: drop-shadow(0 0 10px var(--ice-blue)); transform: translateY(-3px); }
+        footer { text-align: center; opacity: 0.4; padding: 20px 0 80px; font-size: 0.8rem; letter-spacing: 1px; }
+
+        @media screen and (max-width: 768px) {
+            h1 { font-size: 2.3rem !important; }
+            .timer-num { font-size: 2.5rem; }
+            .nav-links { display: none; }
+        }
+    </style>
+</head>
+<body>
+
+    <div id="cursor-dot"></div><div id="cursor-outline"></div>
+    <div class="mountain-bg"></div><canvas id="snow-canvas"></canvas>
+
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="nav-brand"><i class="fa-solid fa-cross"></i> NothingButTyler</a>
+            <div class="nav-links">
+                <a href="/about" class="nav-link">About</a>
+                <a href="/birthdaycountdown" class="nav-link active-page">Birthday</a>
+                <a href="/projects" class="nav-link">Projects</a>
+                <a href="https://nothingbuttylermovies.github.io/" class="nav-link">Movies</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container">
+        <header class="hero reveal">
+            <h1>The Next Peak</h1>
+            <p id="tagline">Birthday: June 10th</p>
+        </header>
+
+        <div class="section-card reveal">
+            <h2 style="text-align: center; text-transform: uppercase; font-size: 0.8rem; letter-spacing: 4px; opacity: 0.6; margin-bottom: 25px; color: var(--ice-blue);">
+                Time Until Birthday <span class="live-badge">LIVE</span>
+            </h2>
+            <div id="timer-numbers" class="timer-display">
+                <div class="timer-box"><span class="timer-num" id="days">--</span><span class="timer-label">Days</span></div>
+                <div class="timer-box"><span class="timer-num" id="hours">--</span><span class="timer-label">Hours</span></div>
+                <div class="timer-box"><span class="timer-num" id="mins">--</span><span class="timer-label">Mins</span></div>
+                <div class="timer-box"><span class="timer-num" id="secs">--</span><span class="timer-label">Secs</span></div>
+            </div>
+            <div id="birthday-message">🏔️ THE SUMMIT HAS BEEN REACHED! HAPPY BIRTHDAY! 🎉</div>
+        </div>
+
+        <div class="section-card reveal">
+            <h2 style="color: var(--ice-blue); margin-bottom: 20px; font-weight: 800;">The Next Level</h2>
+            <p>Just a kid posting cringey videos and messily clicking through CapCut. I didn't know then that I'd be enjoying the logic of <strong>Roblox Studio</strong>, the art of web architecture, and the thrill of <strong>content creation</strong>.</p>
+            <p style="margin-top: 15px;">Being a developer and creator isn't just about the lines of code you write or the videos you edit—it's about the growth between every project. This birthday isn't just a number to me—it's the start of a year where I want to push <strong>NothingButTyler</strong> further than ever before.</p>
+            <p style="margin-top: 15px;">I'm working on bigger ideas, cleaner systems, and staying focused on the path God has set for me. From the code behind my <a href="/projects">projects</a> to the videos on my main channel, the "beta phase" of my journey is over. I'm ready for the real climb.</p>
+            <p style="margin-top: 25px; font-weight: 700; color: var(--ice-blue);">Let's see what the summit looks like this year. <3</p>
+        </div>
+
+        <div class="social-links reveal">
+            <a href="https://youtube.com/@nothingbuttyler"><i class="fa-brands fa-youtube"></i></a>
+            <a href="https://github.com/nothingbuttyler"><i class="fa-brands fa-github"></i></a>
+            <a href="https://discord.gg/s2KB2FSFpZ"><i class="fa-brands fa-discord"></i></a>
+            <a href="https://www.roblox.com/users/3112388514/profile" style="display: inline-flex; align-items: center; justify-content: center; width: 45px; height: 45px;">
+                <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" style="fill: white; width: 32px; height: 32px;"><path d="M18.926 23.998 0 18.892 5.075.002 24 5.108ZM15.348 10.09l-5.282-1.453-1.414 5.273 5.282 1.453z"></path></svg>
+            </a>
+            <a href="https://x.com/N0th2ngB4tT2l3r"><i class="fa-brands fa-x-twitter"></i></a>
+            <a href="https://guns.lol/nothingbuttyler"><i class="fa-solid fa-share-nodes"></i></a>
+        </div>
+
+        <footer><p>NothingButTyler &copy; 2026 | Built with Faith & Vision</p></footer>
+    </div>
+
+    <script>
+        // Set to 'true' to test the celebration mode immediately
+        const isBirthdayNow = false; 
+
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, flakes = [], confetti = [];
+
+        function init() {
+            w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight;
+            flakes = Array.from({length: 30}, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 2 + 1, d: Math.random() * 0.8 + 0.5 }));
+            if (isBirthdayNow) {
+                const colors = ['#38bdf8', '#f8fafc', '#fbbf24'];
+                confetti = Array.from({length: 40}, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 4 + 2, d: Math.random() * 2 + 1, color: colors[Math.floor(Math.random() * colors.length)], tilt: Math.random() * 10 }));
+            }
+        }
+
+        function draw() {
+            ctx.clearRect(0, 0, w, h);
+            ctx.fillStyle = "rgba(255, 255, 255, 0.4)";
+            ctx.beginPath();
+            flakes.forEach(f => { ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2); f.y += f.d; if (f.y > h) f.y = -10; });
+            ctx.fill();
+            if (isBirthdayNow) {
+                confetti.forEach(c => { ctx.beginPath(); ctx.fillStyle = c.color; ctx.ellipse(c.x, c.y, c.r, c.r / 2, c.tilt, 0, Math.PI * 2); ctx.fill(); c.y += c.d; c.tilt += 0.1; if (c.y > h) c.y = -10; });
+            }
+            requestAnimationFrame(draw);
+        }
+
+        function updateTimer() {
+            const now = new Date();
+            const timerUI = document.getElementById('timer-numbers');
+            const bdayUI = document.getElementById('birthday-message');
+            
+            if (isBirthdayNow) {
+                if(timerUI) timerUI.style.display = 'none';
+                if(bdayUI) bdayUI.style.display = 'block';
+            } else {
+                let target = new Date(`June 10, ${now.getFullYear()} 00:00:00`);
+                if (now > target) target.setFullYear(now.getFullYear() + 1);
+                const diff = target - now;
+                document.getElementById('days').innerText = Math.floor(diff / 86400000).toString().padStart(2, '0');
+                document.getElementById('hours').innerText = Math.floor((diff / 3600000) % 24).toString().padStart(2, '0');
+                document.getElementById('mins').innerText = Math.floor((diff / 60000) % 60).toString().padStart(2, '0');
+                document.getElementById('secs').innerText = Math.floor((diff / 1000) % 60).toString().padStart(2, '0');
+            }
+        }
+
+        // ONE SINGLE REVEAL FUNCTION
+        function reveal() {
+            document.querySelectorAll(".reveal").forEach(el => {
+                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add("active");
+            });
+
+            const nav = document.querySelector('nav');
+            const tagline = document.getElementById('tagline');
+            if (tagline && nav) {
+                const triggerPoint = tagline.getBoundingClientRect().bottom;
+                if (triggerPoint < 0) {
+                    nav.classList.add('scrolled');
+                } else {
+                    nav.classList.remove('scrolled');
+                }
+            }
+        }
+
+        // STARTUP LOGIC
+        window.onload = () => { 
+            init(); 
+            draw(); 
+            reveal(); 
+            setInterval(updateTimer, 1000); 
+            updateTimer(); 
+        };
+
+        window.onscroll = reveal;
+        window.onresize = init;
+
+        // CURSOR LOGIC (restored)
+        const dot = document.getElementById('cursor-dot'), out = document.getElementById('cursor-outline');
+        window.onmousemove = (e) => { 
+            if(dot && out) {
+                dot.style.left = out.style.left = e.clientX + "px"; 
+                dot.style.top = out.style.top = e.clientY + "px"; 
+            }
+        };
+    </script>
+</body>
+</html>
+
+</body>
 </html>
