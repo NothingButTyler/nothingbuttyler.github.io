@@ -19,62 +19,68 @@
         #cursor-dot, #cursor-outline { position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
         #cursor-dot { width: 8px; height: 8px; background: var(--ice-blue); border-radius: 50%; box-shadow: 0 0 10px var(--ice-blue); }
         #cursor-outline { width: 30px; height: 30px; border: 2px solid var(--ice-blue); border-radius: 50%; transition: transform 0.15s ease-out; opacity: 0.5; }
-        
-        /* MOBILE DISABLE */
-        @media (pointer: coarse), (max-width: 1024px) { 
-            #cursor-dot, #cursor-outline { display: none !important; visibility: hidden !important; } 
-            * { cursor: auto !important; } 
-        }
+        @media (pointer: coarse), (max-width: 768px) { #cursor-dot, #cursor-outline { display: none !important; } * { cursor: auto !important; } }
 
         body { margin: 0; font-family: 'Inter', sans-serif; background: #0f172a; color: var(--snow); line-height: 1.6; overflow-x: hidden; }
         .reveal { opacity: 0; transform: translateY(30px); transition: 0.8s ease-out; }
         .reveal.active { opacity: 1; transform: translateY(0); }
         
-        .mountain-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2000') center/cover; opacity: 0.15; z-index: -2; }
+        .mountain-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2000') center/cover; opacity: 0.22; z-index: -2; }
         #snow-canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
         
-        /* NAVIGATION */
+        .container { max-width: 850px; margin: 0 auto; padding: 20px; }
+
+        /* NAVIGATION - EXACT HOMEPAGE STYLE */
         nav {
             position: fixed; top: 0; width: 100%; z-index: 2000;
             background: rgba(15, 23, 42, 0.98); backdrop-filter: blur(15px);
-            border-bottom: 2px solid var(--ice-blue);
+            border-bottom: 2px solid var(--ice-blue); transition: 0.4s ease; 
             transform: translateY(-100%); opacity: 0;
-            transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
         }
         nav.scrolled { transform: translateY(0); opacity: 1; }
-
         .nav-container { max-width: 1100px; margin: 0 auto; display: flex; justify-content: space-between; align-items: center; padding: 15px 30px; }
-        .nav-brand { font-weight: 800; text-transform: uppercase; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
+        .nav-brand { font-weight: 800; text-transform: uppercase; letter-spacing: 1px; text-decoration: none; color: white; display: flex; align-items: center; gap: 10px; }
         .nav-brand i { color: var(--ice-blue); filter: drop-shadow(0 0 12px var(--ice-blue)); }
         .nav-links { display: flex; gap: 20px; }
         .nav-link { text-decoration: none; color: white; font-weight: 800; font-size: 0.7rem; text-transform: uppercase; letter-spacing: 1px; opacity: 0.8; transition: 0.3s; }
-        .nav-link:hover, .nav-link.active-page { opacity: 1; color: var(--ice-blue); }
+        .nav-link:hover, .active-page { opacity: 1; color: var(--ice-blue) !important; }
+        #menu-toggle { display: none; font-size: 1.5rem; color: var(--ice-blue); cursor: pointer; }
 
-        .container { max-width: 1000px; margin: 0 auto; padding: 160px 20px 60px; }
-        .hero { text-align: center; margin-bottom: 100px; }
-        .hero h1 { font-size: 4.5rem; font-weight: 800; margin: 0; letter-spacing: -3px; }
-        #tagline { color: var(--ice-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 4px; font-size: 0.9rem; margin-top: 15px; }
+        /* HERO & BRAND */
+        header { text-align: center; padding: 80px 0 20px; }
+        h1 { font-weight: 800; font-size: 4rem; margin: 0; letter-spacing: -2px; }
+        #tagline { color: var(--ice-blue); font-weight: 700; text-transform: uppercase; letter-spacing: 6px; font-size: 1rem; margin-top: 15px; }
 
-        /* GRID */
+        /* CONTENT GRID - FOR ABOUT PAGE */
         .content-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 30px; margin-bottom: 40px; }
-        .card { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 28px; backdrop-filter: blur(5px); height: fit-content; }
-        h2 { color: var(--ice-blue); margin-top: 0; font-size: 1.8rem; letter-spacing: -1px; }
-        p { opacity: 0.75; font-size: 1.1rem; line-height: 1.7; }
+        .card-section { background: var(--glass); border: 1px solid var(--glass-border); padding: 40px; border-radius: 28px; margin-bottom: 35px; }
+        h2 { color: var(--ice-blue); filter: drop-shadow(0 0 8px var(--ice-blue)); font-weight: 800; display: flex; align-items: center; gap: 12px; }
 
-        /* TIMELINE */
+        /* ABOUT PAGE UNIQUE ELEMENTS */
+        .skill-tag { background: rgba(56, 189, 248, 0.08); border: 1px solid var(--glass-border); padding: 12px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+        .timeline { border-left: 2px solid var(--ice-blue); padding-left: 20px; margin-left: 10px; }
         .time-node { position: relative; padding-bottom: 30px; }
         .time-node::before { content: ''; position: absolute; left: -21px; top: 8px; width: 10px; height: 10px; background: var(--ice-blue); border-radius: 50%; box-shadow: 0 0 10px var(--ice-blue); }
 
-        /* SKILLS */
-        .skill-tag { background: rgba(56, 189, 248, 0.08); border: 1px solid var(--glass-border); padding: 12px 18px; border-radius: 12px; font-size: 0.85rem; font-weight: 700; color: var(--snow); display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
-        .skill-tag i { color: var(--ice-blue); }
+        /* UNIVERSAL FOOTER STYLES */
+        .social-links { display: flex; justify-content: center; align-items: center; gap: 30px; margin: 80px 0 20px; }
+        .social-links a { color: white; font-size: 2rem; opacity: 0.6; transition: 0.3s ease; }
+        .social-links a:hover { opacity: 1; color: var(--ice-blue); filter: drop-shadow(0 0 10px var(--ice-blue)); transform: translateY(-3px); }
+        footer { text-align: center; opacity: 0.4; padding: 20px 0 80px; font-size: 0.8rem; letter-spacing: 1px; width: 100%; }
 
-        /* SOCIALS */
-        .social-links { display: flex; justify-content: center; align-items: center; gap: 25px; margin: 40px 0; }
-        .social-links a { color: white; font-size: 2rem; opacity: 0.7; transition: 0.3s; }
-        .social-links a:hover { opacity: 1; color: var(--ice-blue); filter: drop-shadow(0 0 8px var(--ice-blue)); }
-
-        @media (max-width: 768px) { .content-grid { grid-template-columns: 1fr; } .hero h1 { font-size: 3rem; } }
+        /* PORTRAIT FIXES - EXACT COPIED FROM HOMEPAGE */
+        @media screen and (max-width: 768px) {
+            .content-grid { grid-template-columns: 1fr; }
+            #menu-toggle { display: block !important; }
+            .nav-links { 
+                display: flex !important; position: absolute !important; top: 100% !important; left: 0 !important; width: 100% !important; 
+                background: #0f172a !important; flex-direction: column !important;
+                clip-path: inset(0 0 100% 0); opacity: 0; transition: 0.4s;
+                text-align: left !important;
+            }
+            .nav-links.mobile-open { clip-path: inset(0 0 0 0) !important; opacity: 1 !important; padding: 20px 0 20px 30px !important; }
+            h1 { font-size: 2.3rem !important; }
+        }
     </style>
 </head>
 <body>
@@ -82,12 +88,13 @@
     <div id="cursor-dot"></div><div id="cursor-outline"></div>
     <div class="mountain-bg"></div><canvas id="snow-canvas"></canvas>
 
-    <nav id="topNav">
+    <nav id="mainNav">
         <div class="nav-container">
             <a href="/" class="nav-brand"><i class="fa-solid fa-cross"></i> NothingButTyler</a>
-            <div class="nav-links">
+            <div id="menu-toggle" onclick="toggleMenu()"><i class="fa-solid fa-bars"></i></div>
+            <div class="nav-links" id="navLinks">
                 <a href="/about" class="nav-link active-page">About</a>
-                <a href="/birthday" class="nav-link">Birthday</a>
+                <a href="/birthdaycountdown" class="nav-link">Birthday</a>
                 <a href="/projects" class="nav-link">Projects</a>
                 <a href="https://nothingbuttylermovies.github.io/" class="nav-link">Movies</a>
             </div>
@@ -95,66 +102,53 @@
     </nav>
 
     <div class="container">
-        <div class="hero reveal">
+        <header class="reveal">
             <h1>The Architect</h1>
             <p id="tagline">Beyond the Digital Horizon</p>
-        </div>
+        </header>
 
         <div class="content-grid">
-            <div class="card reveal">
+            <div class="card-section reveal">
                 <h2>The Evolution</h2>
                 <p>I started out like a lot of creators—just making cringey videos, messing around with CapCut templates, and honestly, even stealing a few videos here and there. It was all just for fun, but eventually, I wanted to do more than just edit what other people made. I wanted to build my own worlds.</p>
                 <p>That’s when things changed. I started teaching myself how to code and how to use <strong>Roblox Studio</strong> properly. I went from clicking "export" on templates to actually engineering systems like <strong>Epic Verification</strong> and <strong>SocialConnect</strong>. My music taste evolved too—getting into sounds like <strong>BloomerSound</strong>—and I started putting effort into making my own high-quality edits and cinematic videos from scratch.</p>
-                
-                <!--   <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 30px 0;">
-                
-                <p style="opacity: 0.9; font-size: 1.15rem;">--><p>
-                    Today, <strong>NothingButTyler</strong> is about that growth. It’s the journey of moving from low-effort content to high-effort creation. Whether it's a website, a game, or a video edit, I’m focused on learning new things and making sure every project is better than the last.
-                </p>
-                <p>I hope you'll enjoy the new me, as I am moving on from the past. &lt;3</p>
+                <p>Today, <strong>NothingButTyler</strong> is about that growth. It’s the journey of moving from low-effort content to high-effort creation. Whether it's a website, a game, or a video edit, I’m focused on learning new things and making sure every project is better than the last.</p>
+                <p style="margin-top: 20px; font-weight: 700; color: var(--ice-blue);">I hope you'll enjoy the new me, as I am moving on from the past. <3</p>
             </div>
 
             <div class="sidebar">
-                <div class="card reveal" style="margin-bottom: 30px; background: rgba(255,255,255,0.02);">
-                    <h2 style="font-size: 1.4rem;">Tech Arsenal</h2>
+                <div class="card-section reveal" style="margin-bottom: 30px; padding: 25px;">
+                    <h2 style="font-size: 1.3rem;">Tech Arsenal</h2>
                     <div class="skill-tag"><i class="fa-brands fa-html5"></i> Web Architecture</div>
                     <div class="skill-tag"><i class="fa-solid fa-gamepad"></i> Roblox Engineering</div>
                     <div class="skill-tag"><i class="fa-brands fa-discord"></i> Bot Systems</div>
                     <div class="skill-tag"><i class="fa-solid fa-scissors"></i> Professional Editing</div>
                 </div>
 
-                <div class="card reveal" style="background: rgba(56, 189, 248, 0.03);">
-                    <h2 style="font-size: 1.4rem; margin-bottom: 25px;">The Ascent</h2>
-                    <div class="timeline" style="border-left: 2px solid var(--ice-blue); padding-left: 20px; margin-left: 10px;">
+                <div class="card-section reveal" style="padding: 25px;">
+                    <h2 style="font-size: 1.3rem;">The Ascent</h2>
+                    <div class="timeline">
                         <div class="time-node">
-                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.8rem;">APRIL 7, 2023 • START</span>
-                            <p style="margin: 5px 0; font-size: 0.85rem; opacity: 0.6;">First steps into creation and Roblox exploration.</p>
+                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.7rem;">APRIL 7, 2023 • START</span>
+                            <p style="margin: 5px 0; font-size: 0.8rem; opacity: 0.6;">First steps into creation.</p>
                         </div>
                         <div class="time-node">
-                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.8rem;">MAY 16, 2024 • PIVOT</span>
-                            <p style="margin: 5px 0; font-size: 0.85rem; opacity: 0.6;">Stopped and decided to explore a new path.</p>
+                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.7rem;">MAY 16, 2024 • PIVOT</span>
+                            <p style="margin: 5px 0; font-size: 0.8rem; opacity: 0.6;">Decided to explore a new path.</p>
                         </div>
                         <div class="time-node">
-                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.8rem;">2025 • EXPANSION</span>
-                            <p style="margin: 5px 0; font-size: 0.85rem; opacity: 0.6;">Launching GhostNet and refining technical tastes.</p>
-                        </div>
-                        <div class="time-node">
-                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.8rem;">2026 • THE RIDGE</span>
-                            <p style="margin: 5px 0; font-size: 0.85rem; opacity: 0.6;">Current Era. Built with Faith & Vision.</p>
-                        </div>
-                        <div class="time-node" style="padding-bottom: 0;">
-                            <span style="font-weight: 800; color: #a5f3fc; font-size: 0.8rem; letter-spacing: 1px;">BEYOND THE RIDGE</span>
-                            <p style="margin: 5px 0; font-size: 0.85rem; opacity: 0.4; font-style: italic;"><!--Life can change a lot.-->What's next is up to God.</p>
+                            <span style="font-weight: 800; color: var(--ice-blue); font-size: 0.7rem;">2026 • THE RIDGE</span>
+                            <p style="margin: 5px 0; font-size: 0.8rem; opacity: 0.6;">Current Era. Faith & Vision.</p>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
 
-        <div class="reveal" style="text-align: center; margin-top: 80px;">
+        <div class="reveal" style="text-align: center; margin-top: 40px;">
             <div style="display: inline-block; padding: 15px 45px; border: 1px solid var(--ice-blue); border-radius: 50px; background: rgba(56, 189, 248, 0.05); box-shadow: 0 0 20px rgba(56, 189, 248, 0.1);">
                 <span style="font-size: 0.8rem; font-weight: 800; text-transform: uppercase; color: var(--ice-blue); letter-spacing: 3px; display: flex; align-items: center; gap: 15px;">
-                    <i class="fa-solid fa-person-digging" style="font-size: 1rem;"></i> Current Objective: NothingButTyler+
+                    <i class="fa-solid fa-person-digging"></i> Current Objective: NothingButTyler+
                 </span>
             </div>
         </div>
@@ -169,23 +163,13 @@
             <a href="https://x.com/N0th2ngB4tT2l3r"><i class="fa-brands fa-x-twitter"></i></a>
             <a href="https://guns.lol/nothingbuttyler"><i class="fa-solid fa-share-nodes"></i></a>
         </div>
-        
-        <footer class="reveal" style="text-align:center; opacity:0.5; padding:40px 0 60px; font-size: 0.8rem;">
-            <p>NothingButTyler &copy; 2026 | Built with Faith & Vision</p>
-        </footer>
 
+        <footer><p>NothingButTyler &copy; 2026 | Built with Faith & Vision</p></footer>
     </div>
 
-    <script>
-        const nav = document.getElementById('topNav');
-        const tagline = document.getElementById('tagline');
 
-        // SCROLL SCRIPT
-        window.addEventListener('scroll', () => {
-            if (tagline.getBoundingClientRect().bottom < 0) nav.classList.add('scrolled');
-            else nav.classList.remove('scrolled');
-            reveal();
-        });
+    <script>
+        function toggleMenu() { document.getElementById('navLinks').classList.toggle('mobile-open'); }
 
         function reveal() {
             document.querySelectorAll(".reveal").forEach(el => {
@@ -193,64 +177,35 @@
             });
         }
 
-        window.onload = () => { 
-            reveal(); 
-            initSnow();
-            // DOUBLE CHECK MOBILE DISABLING
-            if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {
-                document.getElementById('cursor-dot').style.display = 'none';
-                document.getElementById('cursor-outline').style.display = 'none';
-            }
+        window.onscroll = () => {
+            const nav = document.getElementById('mainNav');
+            const tagline = document.getElementById('tagline');
+            if (tagline && tagline.getBoundingClientRect().bottom < 0) nav.classList.add('scrolled');
+            else nav.classList.remove('scrolled');
+            reveal();
         };
 
-        function initSnow() {
-            const canvas = document.getElementById('snow-canvas');
-            const ctx = canvas.getContext('2d');
-            
-            // FIX: Track the full document height so snow reaches the bottom
-            let w = canvas.width = window.innerWidth;
-            let h = canvas.height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-
-            // Update canvas size if the window is resized
-            window.addEventListener('resize', () => {
-                w = canvas.width = window.innerWidth;
-                h = canvas.height = Math.max(document.documentElement.scrollHeight, document.body.scrollHeight);
-            });
-
-            let flakes = Array.from({length: 50}, () => ({ 
-                x: Math.random() * w, 
-                y: Math.random() * h, 
-                r: Math.random() * 2 + 1, 
-                d: Math.random() * 0.5 + 0.5 
-            }));
-
-            function draw() {
-                ctx.clearRect(0, 0, w, h);
-                ctx.fillStyle = "rgba(255, 255, 255, 0.3)";
-                ctx.beginPath();
-                flakes.forEach(f => {
-                    ctx.moveTo(f.x, f.y);
-                    ctx.arc(f.x, f.y, f.r, 0, Math.PI * 2);
-                    f.y += f.d;
-                    
-                    // Reset to top when it hits the bottom of the ENTIRE page
-                    if (f.y > h) {
-                        f.y = -10;
-                        f.x = Math.random() * w;
-                    }
-                });
-                ctx.fill();
-                requestAnimationFrame(draw);
-            }
-            draw();
+        const canvas = document.getElementById('snow-canvas');
+        const ctx = canvas.getContext('2d');
+        let w, h, flakes = [];
+        function init() {
+            w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight;
+            flakes = Array.from({length: 40}, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 2 + 1, d: Math.random() * 0.5 + 0.5 }));
+        }
+        function draw() {
+            ctx.clearRect(0,0,w,h); ctx.fillStyle = "rgba(255,255,255,0.4)"; ctx.beginPath();
+            flakes.forEach(f => { ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2); f.y += f.d; if (f.y > h) f.y = -10; });
+            ctx.fill(); requestAnimationFrame(draw);
         }
 
-
         const dot = document.getElementById('cursor-dot'), out = document.getElementById('cursor-outline');
-        window.addEventListener('mousemove', (e) => { 
+        window.onmousemove = (e) => { 
             dot.style.left = out.style.left = e.clientX + "px"; 
             dot.style.top = out.style.top = e.clientY + "px"; 
-        });
+        };
+
+        window.onload = () => { init(); draw(); reveal(); };
+        window.onresize = init;
     </script>
 </body>
 </html>
