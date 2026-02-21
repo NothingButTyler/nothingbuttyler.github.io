@@ -1,0 +1,547 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Open the letter! | NothingButTyler</title>
+
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Playfair+Display:ital,wght@0,400;0,700;1,400&display=swap');
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    height: 100vh;
+    /* Background starts dark and transitions to warm */
+    background: #0f1018;
+    transition: background 1.5s ease;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Body class when letter is open */
+body.warm-bg {
+    background: #2c241a;
+}
+
+/* Stable Envelope Design */
+.envelope {
+    width: 90%;
+    max-width: 400px;
+    height: 260px;
+    position: relative;
+    background: #f2e3d2;
+    border-radius: 0 0 10px 10px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    perspective: 1000px;
+    z-index: 1;
+}
+
+.envelope::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: #ead9c5;
+    clip-path: polygon(0% 0%, 50% 50%, 100% 0%, 100% 100%, 0% 100%);
+    z-index: 2;
+    border-radius: 0 0 10px 10px;
+    pointer-events: none;
+}
+
+.envelope-ui {
+    width: 80%;
+    text-align: center;
+    z-index: 5;
+    transition: opacity 0.4s ease, transform 0.4s ease;
+}
+
+.hidden {
+    opacity: 0;
+    transform: scale(0.9);
+    pointer-events: none;
+}
+
+.address-label {
+    color: #5d544b;
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+}
+
+.flap {
+    width: 100%;
+    height: 100%;
+    background: #e6d5c3;
+    position: absolute;
+    top: 0;
+    left: 0;
+    clip-path: polygon(0 0, 50% 50%, 100% 0);
+    transform-origin: top;
+    transition: transform 0.6s ease;
+    z-index: 4;
+}
+
+.envelope.open .flap {
+    transform: rotateX(180deg);
+    z-index: 0;
+}
+
+input {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: 1px solid #d4c3b0;
+    text-align: center;
+    font-size: 16px;
+    outline: none;
+}
+
+button {
+    width: 100%;
+    padding: 12px;
+    border-radius: 8px;
+    border: none;
+    background: #5c85d6;
+    color: white;
+    margin-top: 10px;
+    cursor: pointer;
+    font-weight: bold;
+    transition: background 0.3s;
+}
+
+button:hover { background: #4a6fb8; }
+
+.error {
+    color: #d9534f;
+    font-size: 14px;
+    margin-top: 8px;
+}
+
+/* Fullscreen Letter Paper */
+.paper {
+    position: fixed;
+    inset: 0;
+    background: #fffdfa;
+    transform: translateY(100%);
+    transition: transform 0.8s cubic-bezier(0.19, 1, 0.22, 1);
+    z-index: 10;
+    overflow-y: auto;
+}
+
+.paper.show {
+    transform: translateY(0);
+}
+
+.paper-content {
+    min-height: 100%;
+    padding: 80px 40px;
+    max-width: 700px;
+    margin: 0 auto;
+    font-family: 'Playfair Display', serif;
+    line-height: 30px; 
+    color: #333;
+    background-image: linear-gradient(#e5e5e5 1px, transparent 1px);
+    background-size: 100% 30px; 
+}
+
+.paper h2 {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2.5rem;
+    color: #4a6fb8;
+    margin-bottom: 30px;
+}
+
+.signature {
+    font-family: 'Dancing Script', cursive;
+    font-size: 2rem;
+    margin-top: 40px;
+}
+
+/* Close Button Styling */
+.close-btn {
+    display: inline-block;
+    margin-top: 50px;
+    background: transparent;
+    border: 1px solid #ccc;
+    color: #888;
+    padding: 10px 20px;
+    font-family: sans-serif;
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    cursor: pointer;
+    border-radius: 4px;
+    transition: all 0.3s;
+}
+
+.close-btn:hover {
+    border-color: #4a6fb8;
+    color: #4a6fb8;
+}
+
+@media (max-width: 500px) {
+    .paper-content { padding: 60px 20px; }
+}
+</style>
+</head>
+<body>
+
+<div class="envelope" id="envelope">
+    <div class="flap"></div>
+    
+    <div class="envelope-ui" id="envelope-ui">
+        <div class="address-label">
+            To: <b>Nova</b><br>
+            From: <b>Tyler</b>
+        </div>
+
+        <input type="password" id="password" placeholder="Enter Password">
+        <button onclick="checkPassword()">Read Letter</button>
+        <div class="error" id="error"></div>
+    </div>
+</div>
+
+<div class="paper" id="paper">
+    <div class="paper-content">
+      <!--    <h2>💌 A Special Letter</h2>-->
+
+      <h1>Full Days while I was Gone on Discord</h1>
+<h3>
+  <p>Hiii nova! I missed you so much! &lt;3</p>
+  <p>Here are the full days while I left Discord.</p>
+
+  <hr />
+Wednesday, February 11, 2026</h3><br />
+  <b>Before I left Discord...</b>
+
+<p>My day was okay.<br /><br />
+
+<strong>2nd, 4th periods, part of lunch</strong>: X hasn't looked at me which made me think:
+<br /><br />
+<br />— is she trying to focus on everything else but me?
+  <br />— did I do something wrong?
+    <br />— does she not care about me?
+<br />— did she move on?
+<br />— am I slowly fading away from her life?
+<br /><br />
+Its mainly the last one a lot and the rest some of the time.<br />
+<br />
+<strong>Lunch</strong>: As I watched X go and not notice me and not go to my table for the 4th time, I started realizing that maybe she's better off without me, or that im fading slowly away from her life.
+<br /><br />
+Aside from that, me and W played gaga ball again. I was gonna play catch with one of my friends but I couldn't find him, and then when he showed up, he told me i was lying when really I couldn't find him anywhere! So then I just played gaga ball with W all recess. After my realization (before me and W were going to gaga ball) W desperately wanted the fruit snacks I was gonna give to X. I thought about it and a few minutes later I said, "ykw? Sure. You can have it." And I kinda got a little mad about x so then I said "its her fault for not coming over to our table to simply get some fruit snacks." idk if it was her fault or not, but it made me mad and sad inside a little.
+<br /><br />
+<strong>6th period</strong>: Even though we had a strict guest teacher, reading out loud has never been funnier. 3 kids were reading, and we'll call them Peyton C, Peyton S, and Gwen. (Fun fact: I used to kind of like Gwen until I realized she was friends with someone who's mutual friends with X, Maddisynn, and Gia. Then I stopped liking her afterwards.) So while reading, they were joking around while reading and it was silly! We didnt really get anywhere to our worksheet though but its a good thing it isnt due for awhile. While reading, Gwen only read one page, Peyton C read around 2-3 pages, but for Peyton S...HE READ EVERYTHING bc the guest teacher enjoyed his reading! 😭 it made me laugh.
+
+  <br /><br />
+  And then afterwards, advisor came along. I originally was gonna leave on Thursday, but it has gotten horribly bad, so instead I told my goodbyes to my best friends, changed my profile to look like a deleted user, added a message in my bio letting people know, and then I left.
+</p>
+    
+    <hr />
+    <h3>Thursday, February 12, 2026</h3>
+    <b>Day 2 of leaving Discord</b>
+    <p>I didn't go to school today.</p>
+    
+    <hr />
+    <h3>Friday, February 13, 2026</h3>
+    <b>Day 3 of leaving Discord</b>
+    <p>My day was better than Wednesday!
+      <br /><br />
+      <strong>2nd period:</strong> I turned around fast, but I think X noticed me for the first time. I stayed chill though.
+      
+      <br /><br />
+      My goal today was to not look at X a lot like I usually do.
+      
+      <br /><br />
+      
+      <strong>Lunch:</strong> I rarely looked at X's table during lunch. I basically beat my goal for today! But I noticed W was "bugging his eyes out" toward someone. (Idk if I said that right, but he looked like this emoji with the eyes: 😳.) I asked W who he was staring at and he said her name. "X". I was chill with it and I didn't look back. Oh, and the fruit snacks? Instead of giving them to X, I gave them to one of mine and W's friend, Elizabeth. I haven't really told much about her, but she's always with us every day (well, besides if any of us are absent). Later after lunch was done and we were walking out to recess, I did a 360 degree spin for fun, but then I noticed X looked at me again! And when I was near the fence to set my lunch down and talking to W, and... thats when I realized that I forgot to finish the rest of my lunch. I only finished half. But then...both X <u>AND</u> Gia were looking at me! Then when we went down to the gaga ball area and I carefully turned my eyes to the right and I saw them look at us, still...it was wierd but I'm guessing they were curious why I didn't look at them. Obviously I didn't look at them for a reason...because:
+      
+      <br /><br />
+      
+      That's all! But there's some things I wanna say:
+      <br /><br />
+      <strong>X:</strong> I <u>was</u> thinking of making a Valentine's drawing for X but I realized that she's gonna think I like her again, reject me, and I'll feel worse. So instead I didn't make anything. Remember on Tuesday where she was saying that she wanted a cookie, but really she already had one and was playing with me? So I thought of getting her a cookie, but then I forgot to get it, and it was too late, so I never got one. It's okay though since it was better when I didn't do those.
+      <br /><br />
+      <strong>Gwen:</strong> You're probably wondering who that is. Well, she's a girl, and she's only in my 6th period class. I've kind of had a mini crush on her. I started liking her when X starting getting space from me during our relationship at the time, but I stopped afterwards since I still liked X a lot more at the time. I started liking her a few days ago, but then I stopped again bc she's friends with someone who is a mutual friend of X, Maddisynn, & Gia, (we'll call him A2), and that's a problem if they come toward me. Today, I ignored that and starting liking her again. Except there's another problem- I havent talked or interacted with Gwen so we arent friends nor crushes on each other. 
+      
+      <br /><br />
+      The only time I interacted was when I was in 6th period just a few days ago and Gwen's phone fell and it landed near my desk, so i slid her phone on the carpet floor and she picked it up and put it on the basket holder thing under her desk. Thats the only time I interacted but didnt talk or look at her.
+      
+      <br /><br />
+      Maybe one day I might try and talk to her...
+      
+      <hr />
+      <h3>Saturday, February 14, 2026</h3>
+      <b>Day 4 of leaving Discord</b>
+      <p>
+        Not much happened, I just kept coding on my website!
+        <br /><br />
+        
+        I did think of writing a little note to Gwen just so she knows who I am. I used 2 AI assistants's to get some suggestions.<br />
+        <br />
+        
+        <code>"Hey, I'm Tyler. I like your art."</code> That one was by Google Gemini.
+        
+        <br /><br />
+        
+        <code>"Hey, I'm Tyler. I really like your art :)'"</code> That one is from ChatGPT. It includes 2 more.
+        <br /><br />
+        <code>"Hey, I'm Tyler. I like your art."</code> Also from Chat (yeah, I nicknamed it for fun)
+        <br /><br />
+        <code>"Hey, I’m Tyler. I just wanted to say I really like your art."</code> Also from Chat.
+        <br /><br />
+        I chose the 2nd one, but I adjusted it a bit:
+        <br /><br />
+        <code>"Hi Gwen, I'm Tyler. I like your art."</code>
+        <br /><br />
+        I changed "hey" with "hi" and I included Gwen's name. What do you think? Is it good?
+      </p>
+      
+      <hr />
+      <h3>Sunday, February 15, 2026</h3>
+      <b>Day 5 of leaving Discord</b>
+      <p>
+        
+        I'm skiing today! I wrote all of what I did on Saturday today while I was on my break.
+        
+        <br /><br />
+        
+                Around to 10:00–11:00 AM, it was perfect snow! And then around 11:30 AM and up, it was slushy at the bottom and the roof of the lodges' snow was sliding off! It was crazy.
+        <br /><br />
+        There was powder everywhere! Powder is the best thing to ski on.
+        <br /><br />
+        I feel like returning to Discord soon. Overall, my mental health is getting better.
+        <br /><br />
+        <strong>Update (around 15 mins later)</strong>: my mental health went down, so now its gonna be longer. My parents are making me mad right now.
+      </p>
+      
+      <hr />
+      <h3>Monday, February 16, 2026</h3>
+      <b>Day 6 of leaving Discord</b>
+      <p>
+        
+        I didn't do much besides do chores and some of my school work.
+        <br /><br />
+        I head back to school tomorrow.
+        
+      </p>
+      
+      <hr />
+      <h3>Tuesday, February 17, 2026</h3>
+      <b>Day 7 of leaving Discord </b>
+      <br /><br />
+          My day was in the middle. Bad and good somewhat.
+          
+          <br /><br />
+          <strong>2nd period:</strong> One of my friends touched my phone when I had my calculator open and it made me mad. I didn't go around the classroom to do laps (since everyone likes doing it) because of that.
+          <br /><br />
+          <strong>3rd period (gym):</strong> X looked at me a lot, but I tried my best not to look at her. I only noticed her once today.
+          <br /><br />
+          <strong>5th period:</strong> My friend was talking smack about me because I was talking to an Ai Assistant to make me feel better since at the time, I felt like I was about to yell at the top of my lungs straight at his face. Luckily I kept my cool and I did not do that, but it made me mad.
+          <br /><br />
+          Also, about giving the note to Gwen, I'm deciding to do it tomorrow, since I'm not in a good mood right now.
+          <br /><br />
+          <strong>Lunch/recess: </strong> W gave me the best idea yet for Gwen. The <i>maybe</i> bad news is that:
+          <br /><br />
+          I found out that W used to interact with Gwen and she's <u>lesbian</u>. I was shocked.
+          <br /><br />          Buttttt the maybe good news is that:<br />
+          <br />
+
+W said this to Gwen in <i>5th grade</i>. Its been <u>3 years</u>, maybe she changed, according to W.
+          <br /><br />
+W gave me some freeze dried M&M's and some freeze dried Jolly Ranchers. I wasnt a full fan of the freeze dried Jolly Ranchers a lot, but I loved the freeze dried M&M's. But that gave me an idea.
+          <br /><br />
+What if I give her the note tomorrow...but include some freeze dried M&M's/Jolly Ranchers??
+
+          <br /><br />
+          I decided to do this note ChatGPT generated (because I told it about what happened, but I told it change the note up a bit.
+          <br /><br />
+          This is what it said:
+          <br /><br />
+          <code>"Hey, I tried these today and thought they were really good so I wanted to share :)"</code>
+          <br /><br />
+          I like it, but I want to mix it up with the previous one. The part where it said "I've seen you drawing before and I like it"- or something like that.
+          <br /><br />
+          I'll give you some updates on what the note will look like!
+          <br /><br />
+          <strong>6th period:</strong> We had a guest teacher, so more funny reading! Oh yeah, and when someone finally chose me, I read confidently, and I NEVER read confidently! And then when I chose someone, I said it confidently too! I was like, "Peytonnn Cccc!" like I sounded like an announcer. No one really liked it, but I'm proud that I sounded confident.
+          <br /><br />
+          The one thing that made my day a little was when me and Gwen both noticed each other (I think), for at least a second! Later on though, she said she blacked out, so maybe it was a mistake. But I think it counts as a win!
+          <br /><br />
+          And that's it. Any updates I make will go below!
+          <br /><br />
+          <strong>Update:</strong> Thanks to Google Gemini (since I can't use ChatGPT), it mixed up the previous note with the other note, it did this:
+          <br /><br />
+          <code>"Hey Gwen, I'm Tyler. I’ve seen you drawing before and I think it’s cool. Also, I tried these today and they were actually fire, so I wanted to share! :)"</code>
+          <br /><br />
+          Honestly, this looks perfect to send to Gwen.
+      </p>
+    
+    <hr />
+    <h3>Wednesday, February 18, 2026</h3>
+    <b>Day 8 of leaving Discord (WEEK ONE 🎉)</b>
+      
+      <br /><br />
+         <strong>NOTE: the only reason why I added the party (:tada:) emoji is because I've never gone this far from leaving Discord.</strong>
+    <br /><br />
+    My day was awesome!!!
+    <br /><br />
+          I'm thinking of heading back to Discord soon, speaking of that.
+    <br /><br />
+    Also, today is super snowy! It goes from -5 to positive 5.
+    <br /><br />
+          And don't forget, today is the day I give Gwen the note!!!
+    <br /><br />
+    <strong>4th period:</strong> Pain. Just pain. So me and X used to pass notes back and forth to each other...but today I saw X doing that to one of her friends who sits behind her (since were in rows now), and it kind of hurt me.
+    <br /><br />
+    Speaking of X, I feel like we aren't on thd same page, so I'm sending her this message when I return to Discord:
+    <br /><br />
+    <code>"Hey, are we on the same page? I just want to make sure we’re okay."</code>
+    <br /><br />
+    <strong>5th period:</strong> It's better compared to yesterday, but I still feel alone. Landon made new friends at our table, and he rarely ever talked to me. But it's fine, ig.
+    <br /><br />
+    And last not least...
+    <br /><br />
+    <strong>6th period:</strong> It was <b><u>EMBARASSINGLY AWESOME!!</u></b> 
+    <br /><br />
+    Here's how it all went:
+    <br /><br />
+    • First, I went immediately to my locker to grab the freeze dried Jolly Ranchers (there wasn't any freeze dried M&M's, but that's okay!), and my school stuff.
+    <br /><br />
+    • Then, while Gwen wasn't in the room, I grabbed the note that I put inside my geography notebook, and I pulled it out, and I put it inside of the bag.
+    <br /><br />
+    • Next, I put the bag with the note inside on her desk, and I immediately left the classroom. While waiting for Gwen to enter the classroom first, before I left, I grabbed my water bottle and I filled it up. And while I did, I saw Gwen walk past me!
+    <br /><br />
+    • And lastly, I entered the classroom, and I noticed Gwen and she was looking at the bag I put on her desk, and then I sat down at my desk.
+    <br /><br />
+    I didn't look at her a lot, but I could hear what she was saying. She was saying some things like "OH MY GOSHH", "Who's Tyler?", "AWWWW!", "What's this?".
+    <br /><br />
+    <b><i>(Most of these probably aren't accurate since I forgot, sorry about that...)</i></b>
+    <br /><br />
+    I couldn't calm down, that's how embarassing it was for me. 2 girls even came up to her so Gwen knew where I was, which made me blush.
+    <br /><br />
+    Sadly, she forgot to say thank you, but it's okay. She was working hard on the worksheet before the bell rang, so I'm guessing she forgot. I'm still proud of what I did. :)
+    <br /><br />
+    And that's it!
+        </p>
+  
+  <hr />
+  <h3>Thursday, February 19, 2026</h3>
+  <strong>Day 9 of leaving Discord</strong>
+  <p>
+    
+    My day was <s>calm,</s> AWESOME but some of it was a little interesting.
+    
+    <br /><br />
+    <strong>Before 1st period</strong>: I embarassed myself by accidentally dropping every single paper in my math folder. I picked them up and shoved them in, and I reorganized all of them before 2nd period started.
+    <br /><br />
+    <strong>3rd, 4th period</strong>: X noticed me a lot, but this time, it was different. I started noticing her on accident, and then we noticed each other for at least a second. I <u>was</u> thinking of doing something so it doesn't look like I'm staring or glaring, but the only thing I tried doing was move my head at a different angle so I looked somewhere else. This happened twice, just at different times.
+    <br /><br />
+    <strong>Lunch</strong>: My math teacher during gaga ball targeted me twice and I got out. It's difficult to see where the ball is going when it's around 10-20 degrees fahrenheit outside.
+    <br /><br />
+    And now...the moment you've been waiting for...
+    <br /><br />
+    <strong>6th period:</strong> NO. FREAKING. WAY. I just made conversation with Gwen today!!! It was short, but I'm so happy rn!!
+    <br /><br />
+    Here's how it all went:
+    <br /><br />
+    <strong>Gwen</strong>: "Tyler?"
+    <br />
+    <strong>Me</strong>: looks up while saying "yeah?"
+    <br />
+    <strong>Gwen</strong>: "Heyy, we're you the one who put the stuff on my desk?"
+    <br />
+    <strong>Me</strong>: *nods*
+    <br />
+    <strong>Gwen</strong>: *smiles and says* "They were really good, thank you, I appreciate it!" <i>(It isnt exactly what she said since I forgot, but I think that's what she said.)</i>
+    <br />
+    <strong>Me</strong>: ofc!!
+    
+    <br /><br />
+    I blushed a lot after that conversation. Oh, and before class ended, Gwen said she didn't have a pencil ("I don't have a pencil", she said), and I was about to give one to her, but then the counsulor— since she came in to talk about suicide prevention and wanted us to write 3 adults to talk to outside of school and 3 activities you can do to feel better.) She gave her a purple pencil and inside my head, I yelled "DANG IT!" Sigh, that would've been a good opportunity if I was prepared. It's okay though, I'm bummed out for that, but I'm extremely glad me and Gwen at least made conversation!
+    <br /><br />
+    And that's it!
+    <br /><br />
+    <i>(Note: I might return to Discord tomorrow.)</i>
+  </p>
+  
+  <hr />
+  <h3>Friday, February 20, 2026</h3>
+  <strong>Day 10 of leaving Discord (Final Day)</strong>
+  <p>
+    
+    My day was alright!
+    <br /><br />
+    <strong>Before 1st period</strong>: I looked on the right side of the hall and I  immediately see X stare at me like she wasn't in a good mood. It's okay though, because one time she looked at me like that before and I asked if she was okay, and she told me she looks like that whenever she is cranky or she just had a rough morning. It felt different for some reason.
+    <br /><br />
+    <strong>1st period</strong>: I saw Gwen enter 1st period! I was thinking of saying "Hi Gwen!" but the room was too quiet, and it would be weird, so I just noticed but didn't say anything. (Later today, sadly, I didn't see her. I think she checked out early, or there was a choir rehearsal/ski trip.)
+    <br /><br />
+    <strong>4th period</strong>: I was kind of dumb because X now knows that I'm (sorta becoming) "friends" with Gwen. Why? Well, we were on Blooket, and I named myself "new friend: gwn". I ran out of room to say Gwen's name, but then my math teacher read my name out loud and I had to let him know that I mean't to say Gwen and not "gwn". Even X looked at me again which made me want to smash my Chromebook for how embarassing it was for me. (I didn't smash it.) Later on, for fun, we played the game "Deceptive Dinos" on Blooket and for fun, I investigated X, and a little later, she investigated me for fun. Oh, and I got 6th place on the Blooket game which was good!
+    <br /><br />
+    <strong>Advisor</strong>: I got a pass from my 6th period teacher so I can hang with W while I'm doing my missing assignments. I finished one of them which is good!
+    And that's it!
+  </p>
+  
+  <hr />
+  <center><h2>Congratulations! You made it to the end!</h2></center>
+  <p>I worked on this page a lot the past few days I've been gone. It's okay if you didn't read everything, it's super long anyways! 😭
+    <br /><br />
+    I hope your week was great! I missed you so much!! &lt;3
+  </p>
+        <div class="signature">— Tyler</div>
+
+        <button class="close-btn" onclick="closeLetter()">Close & Seal</button>
+    </div>
+</div>
+
+<script>
+function checkPassword() {
+    const input = document.getElementById("password").value;
+    const correct = "cutebear495";
+
+    if (input.toLowerCase() === correct) {
+        document.getElementById("error").textContent = "";
+        document.getElementById("envelope-ui").classList.add("hidden");
+        document.getElementById("envelope").classList.add("open");
+        document.body.classList.add("warm-bg");
+
+        // ✅ Change the title when the letter opens
+        document.title = "Full Days while I was Gone on Discord | NothingButTyler";
+
+        setTimeout(() => {
+            document.getElementById("paper").classList.add("show");
+        }, 700);
+
+    } else {
+        document.getElementById("error").textContent = "Incorrect Password!";
+    }
+}
+function closeLetter() {
+    // Hide the paper
+    document.getElementById("paper").classList.remove("show");
+    document.body.classList.remove("warm-bg");
+
+    // Reset the title
+    document.title = "Open the letter!";
+
+    // After paper slides down, reset the envelope
+    setTimeout(() => {
+        document.getElementById("envelope").classList.remove("open");
+        document.getElementById("envelope-ui").classList.remove("hidden");
+        document.getElementById("password").value = "";
+    }, 800);
+}
+
+document.getElementById("password").addEventListener("keypress", function(e) {
+    if (e.key === "Enter") checkPassword();
+});
+</script>
+
+</body>
+  </html>
