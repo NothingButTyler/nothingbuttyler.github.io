@@ -1,118 +1,9 @@
-<!DOCTYPE html> 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NothingButTyler | Coming Soon</title>
-    <link rel="icon" type="image/png" href="/favicons/favicon-96x96.png" sizes="96x96" />
-<link rel="icon" type="image/svg+xml" href="/favicons/favicon.svg" />
-<link rel="shortcut icon" href="/favicons/favicon.ico" />
-<link rel="apple-touch-icon" sizes="180x180" href="/favicons/apple-touch-icon.png" />
-<meta name="apple-mobile-web-app-title" content="NBT" />
-<link rel="manifest" href="/favicons/site.webmanifest" />
-    <script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
-    
-    <style>
-        :root {
-            --snow: #f8fafc; --ice-blue: #38bdf8; --deep-midnight: #0f172a;
-            --glass: rgba(56, 189, 248, 0.05); --glass-border: rgba(56, 189, 248, 0.2);
-        }
-
-        /* CURSOR SYSTEM */
-        * { cursor: none; }
-        #cursor-dot, #cursor-outline { position: fixed; pointer-events: none; z-index: 10000; transform: translate(-50%, -50%); }
-        #cursor-dot { width: 8px; height: 8px; background: var(--ice-blue); border-radius: 50%; box-shadow: 0 0 10px var(--ice-blue); }
-        #cursor-outline { width: 30px; height: 30px; border: 2px solid var(--ice-blue); border-radius: 50%; transition: transform 0.15s ease-out; opacity: 0.5; }
-        @media (pointer: coarse), (max-width: 768px) { #cursor-dot, #cursor-outline { display: none !important; } * { cursor: auto !important; } }
-
-        body { margin: 0; font-family: 'Inter', sans-serif; background: #0f172a; color: var(--snow); height: 100vh; display: flex; align-items: center; justify-content: center; overflow: hidden; }
-        
-        .mountain-bg { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2000') center/cover; opacity: 0.15; z-index: -2; }
-        #snow-canvas { position: fixed; top: 0; left: 0; z-index: -1; pointer-events: none; }
-
-        .lock-card {
-            text-align: center; background: var(--glass); border: 1px solid var(--glass-border);
-            padding: 60px 40px; border-radius: 32px; backdrop-filter: blur(15px);
-            max-width: 550px; width: 90%; position: relative;
-            animation: fadeIn 1.2s ease-out;
-        }
-
-        @keyframes fadeIn { from { opacity: 0; transform: scale(0.95); } to { opacity: 1; transform: scale(1); } }
-
-        .status-badge {
-            display: inline-flex; align-items: center; gap: 8px; 
-            padding: 6px 15px; background: rgba(56, 189, 248, 0.1); 
-            border: 1px solid var(--ice-blue); border-radius: 50px;
-            color: var(--ice-blue); font-weight: 800; font-size: 0.65rem;
-            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 30px;
-            box-shadow: 0 0 15px rgba(56, 189, 248, 0.2);
-        }
-
-        .faith-icon { font-size: 3.5rem; color: var(--ice-blue); filter: drop-shadow(0 0 15px var(--ice-blue)); margin-bottom: 20px; }
-        h1 { font-weight: 800; font-size: 2.5rem; margin: 0; letter-spacing: -1px; }
-        p { opacity: 0.8; font-size: 1.05rem; margin: 20px 0 35px; line-height: 1.6; font-weight: 400; }
-
-        .sync-container { width: 100%; background: rgba(255,255,255,0.05); height: 6px; border-radius: 10px; overflow: hidden; margin-top: 20px; border: 1px solid var(--glass-border); }
-        .sync-progress { background: var(--ice-blue); width: 95%; height: 100%; box-shadow: 0 0 10px var(--ice-blue); animation: pulse 2s infinite ease-in-out; }
-        
-        @keyframes pulse { 0% { opacity: 0.6; } 50% { opacity: 1; } 100% { opacity: 0.6; } }
-
-        .sys-text { font-family: monospace; font-size: 0.65rem; text-transform: uppercase; letter-spacing: 3px; color: var(--ice-blue); margin-top: 15px; opacity: 0.8; }
-    </style>
-</head>
-<body>
-
-    <div id="cursor-dot"></div><div id="cursor-outline"></div>
-    <div class="mountain-bg"></div><canvas id="snow-canvas"></canvas>
-
-    <div class="lock-card">
-        <div class="status-badge"><i class="fa-solid fa-circle-xmark"></i> Temporarily Unavailable</div>
-        <div class="faith-icon"><i class="fa-solid fa-cross"></i></div>
-        <h1>NOTHINGBUTTYLER</h1>
-        <p>I’m currently working behind the scenes to get the new site ready for launch. From the projects on the Ridge to the overall experience, I want everything to be perfect before you see it. Hang tight—we’re almost there.</p>
-        
-        <div class="sync-container"><div class="sync-progress"></div></div>
-        <div class="sys-text">Preparing the new site: 95%</div>
-    </div>
-
-    <div style="display: none;">
-        </div>
-
-    <script>
-        const canvas = document.getElementById('snow-canvas');
-        const ctx = canvas.getContext('2d');
-        let w, h, flakes = [];
-        function init() {
-            w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight;
-            flakes = Array.from({length: 40}, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 2 + 1, d: Math.random() * 0.8 }));
-        }
-        function draw() {
-            ctx.clearRect(0,0,w,h); ctx.fillStyle = "rgba(255,255,255,0.3)"; ctx.beginPath();
-            flakes.forEach(f => { ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2); f.y += f.d + 0.5; if (f.y > h) f.y = -10; });
-            ctx.fill(); requestAnimationFrame(draw);
-        }
-        init(); draw(); window.onresize = init;
-
-        const dot = document.getElementById('cursor-dot'), out = document.getElementById('cursor-outline');
-        window.addEventListener('mousemove', (e) => { 
-            dot.style.left = out.style.left = e.clientX + "px"; 
-            dot.style.top = out.style.top = e.clientY + "px"; 
-        });
-    </script>
-</body>
-</html>
-
-
-
-<!--
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>NothingButTyler | The Peak</title>
+    <title>The Peak | NothingButTyler</title>
     
     <script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
@@ -188,11 +79,39 @@
         .quote-container { text-align: center; margin: 50px 0; }
         .quote { font-style: italic; opacity: 0.8; font-size: 1.15rem; color: var(--ice-blue);  filter: drop-shadow(0 0 8px var(--ice-blue));   font-weight: 400; letter-spacing: 0.5px; }
 
-        /* SOCIALS */
-        .social-links { display: flex; justify-content: center; align-items: center; gap: 25px; margin: 40px 0; }
-        .social-links a { color: white; font-size: 2rem; opacity: 0.7; transition: 0.3s; }
-        .social-links a:hover { opacity: 1; color: var(--ice-blue); filter: drop-shadow(0 0 8px var(--ice-blue)); }
+/* UNIVERSAL FOOTER STYLES */
+.social-links { 
+    display: flex; 
+    justify-content: center; 
+    align-items: center; 
+    gap: 30px; 
+    margin: 80px 0 20px; /* Increased top margin for "Image 1" breathing room */
+}
 
+.social-links a { 
+    color: white; 
+    font-size: 2rem; 
+    opacity: 0.6; 
+    transition: 0.3s ease; 
+}
+
+.social-links a:hover { 
+    opacity: 1; 
+    color: var(--ice-blue); 
+    filter: drop-shadow(0 0 10px var(--ice-blue)); 
+    transform: translateY(-3px);
+}
+
+footer {
+    text-align: center;
+    opacity: 0.4;
+    padding: 20px 0 80px; /* Pushes the bottom away from the edge of the screen */
+    font-size: 0.8rem;
+    letter-spacing: 1px;
+    width: 100%;
+}
+
+    
         /* PORTRAIT FIXES */
         @media screen and (max-width: 768px) {
             #menu-toggle { display: block !important; }
@@ -225,7 +144,7 @@
                 <a href="/about" class="nav-link">About</a>
                 <a href="/birthdaycountdown" class="nav-link">Birthday</a>
                 <a href="/projects" class="nav-link">Projects</a>
-                <a href="https://nothingbuttylermovies.github.io/" class="nav-link">Movies</a>
+                <a href="https://nothingbuttylermovies.github.io/" class="nav-link" onclick="confirmNavigation(event, 'https://nothingbuttylermovies.github.io')">Movies</a>
             </div>
         </div>
     </nav>
@@ -311,7 +230,7 @@
             <a href="https://guns.lol/nothingbuttyler"><i class="fa-solid fa-share-nodes"></i></a>
         </div>
 
-        <footer class="reveal" style="text-align:center; opacity:0.5; padding:40px 0; font-size: 0.8rem;">
+        <footer class="reveal" style="text-align:center; opacity:0.3; padding:50px 0; font-size: 0.8rem;">
             <p>NothingButTyler &copy; 2026 | Built with Faith & Vision</p>
         </footer>
     </div>
@@ -340,19 +259,28 @@
             };
         });
 
-        function reveal() {
-            document.querySelectorAll(".reveal").forEach(el => {
-                if (el.getBoundingClientRect().top < window.innerHeight - 50) el.classList.add("active");
-            });
-        }
-
-        const canvas = document.getElementById('snow-canvas');
+     /*   function reveal() {
+            document.querySelectorAll(".reveal").forEach(el 
         const ctx = canvas.getContext('2d');
-        let w, h, flakes = [];
+        let w, h, flakes = []; */
+            
+            function reveal() {
+    document.querySelectorAll(".reveal").forEach(el => {
+        const windowHeight = window.innerHeight;
+        const elementTop = el.getBoundingClientRect().top;
+        const elementVisible = 150;
+        if (elementTop < windowHeight - elementVisible) {
+            el.classList.add("active");
+        }
+    });
+}
+
+            
         function init() {
             w = canvas.width = window.innerWidth; h = canvas.height = window.innerHeight;
             flakes = Array.from({length: 40}, () => ({ x: Math.random() * w, y: Math.random() * h, r: Math.random() * 2 + 1, d: Math.random() * 0.8 }));
         }
+            
         function draw() {
             ctx.clearRect(0,0,w,h); ctx.fillStyle = "rgba(255,255,255,0.4)"; ctx.beginPath();
             flakes.forEach(f => { ctx.moveTo(f.x, f.y); ctx.arc(f.x, f.y, f.r, 0, Math.PI*2); f.y += f.d + 0.5; if (f.y > h) f.y = -10; });
@@ -365,8 +293,24 @@
             dot.style.left = out.style.left = e.clientX + "px"; 
             dot.style.top = out.style.top = e.clientY + "px"; 
         });
+            
+            /* Comfirmation link script */
+            
+    function confirmNavigation(event, targetUrl) {
+        // Prevent the default navigation of the link
+        event.preventDefault(); 
+        
+        // Display the confirm dialog
+        if (confirm("Are you sure you want to visit? NothingButTyler Movies is still in progress! I recommend you don't so you get a better experience 😉")) {
+            // If the user clicks "OK", navigate to the target URL
+            window.location.href = targetUrl;
+        } else {
+            // If the user clicks "Cancel", do nothing and stay on the current page
+            // The preventDefault() above ensures the link doesn't follow its href automatically
+            return false;
+        }
+    }
+
     </script>
 </body>
 </html>
-
--->
