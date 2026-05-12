@@ -1,0 +1,488 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404: Lost Beyond The Ridge | NothingButTyler</title>
+
+<script src="https://kit.fontawesome.com/eeb01edac2.js" crossorigin="anonymous"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700;800&display=swap" rel="stylesheet">
+
+<style>
+:root{
+    --snow:#f8fafc;
+    --ice-blue:#38bdf8;
+    --deep-midnight:#0f172a;
+    --glass:rgba(56,189,248,0.05);
+    --glass-border:rgba(56,189,248,0.2);
+}
+
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;cursor:none;}
+
+body{
+    font-family:'Inter',sans-serif;
+    background:var(--deep-midnight);
+    color:var(--snow);
+    overflow-x:hidden;
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    position:relative;
+    padding:40px 20px;
+}
+
+/* CUSTOM CURSOR */
+#cursor-dot,#cursor-outline{
+    position:fixed;
+    top:0;
+    left:0;
+    pointer-events:none;
+    z-index:10000;
+    transform:translate(-50%,-50%);
+}
+
+#cursor-dot{
+    width:8px;
+    height:8px;
+    background:var(--ice-blue);
+    border-radius:50%;
+    box-shadow:0 0 12px var(--ice-blue);
+}
+
+#cursor-outline{
+    width:30px;
+    height:30px;
+    border:2px solid var(--ice-blue);
+    border-radius:50%;
+    opacity:.5;
+    transition:transform .15s ease-out;
+}
+
+@media (pointer:coarse),(max-width:768px){
+    *{cursor:auto!important;}
+    #cursor-dot,#cursor-outline{display:none!important;}
+}
+
+/* BACKGROUND */
+.mountain-bg{
+    position:fixed;
+    inset:0;
+    background:url('https://images.unsplash.com/photo-1519681393784-d120267933ba?auto=format&fit=crop&q=80&w=2000') center/cover;
+    opacity:.18;
+    z-index:-2;
+    transform:scale(1.05);
+}
+
+.overlay{
+    position:fixed;
+    inset:0;
+    background:linear-gradient(to bottom,
+        rgba(15,23,42,.2),
+        rgba(15,23,42,.85)
+    );
+    z-index:-1;
+}
+
+#snow-canvas{
+    position:fixed;
+    inset:0;
+    pointer-events:none;
+}
+
+/* MAIN CARD */
+.error-container{
+    width:min(92%,700px);
+    background:var(--glass);
+    border:1px solid var(--glass-border);
+    backdrop-filter:blur(18px);
+    border-radius:32px;
+    padding:60px 45px;
+    text-align:center;
+    animation:fadeIn 1s ease;
+    box-shadow:
+        0 0 40px rgba(56,189,248,.08),
+        inset 0 0 30px rgba(255,255,255,.02);
+}
+
+@keyframes fadeIn{
+    from{
+        opacity:0;
+        transform:translateY(40px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/* ICON */
+.fa-mountain{
+    font-size:5rem;
+    color:var(--ice-blue);
+    filter:drop-shadow(0 0 25px var(--ice-blue));
+    margin-bottom:20px;
+    animation:float 3s ease-in-out infinite;
+}
+
+@keyframes float{
+    0%,100%{transform:translateY(0);}
+    50%{transform:translateY(-10px);}
+}
+
+/* TEXT */
+.error-code{
+    font-size:7rem;
+    font-weight:800;
+    letter-spacing:-4px;
+    line-height:1;
+    color:white;
+    text-shadow:0 0 25px rgba(56,189,248,.25);
+}
+
+.error-title{
+    margin-top:10px;
+    font-size:2rem;
+    font-weight:800;
+    color:var(--ice-blue);
+    filter:drop-shadow(0 0 10px var(--ice-blue));
+}
+
+.error-text{
+    margin-top:20px;
+    font-size:1rem;
+    opacity:.8;
+    line-height:1.7;
+}
+
+/* BUTTONS */
+.button-group{
+    margin-top:35px;
+    display:flex;
+    gap:18px;
+    justify-content:center;
+    flex-wrap:wrap;
+}
+
+.btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    transition:.3s ease;
+    font-size:.8rem;
+    cursor: pointer;
+}
+
+.btn-primary{
+    background:var(--ice-blue);
+    color:var(--deep-midnight);
+    border:2px solid var(--ice-blue);
+    box-shadow:0 0 20px rgba(56,189,248,.25);
+    cursor: pointer;
+}
+
+.btn-primary:hover{
+    transform:translateY(-4px);
+    box-shadow:0 0 30px rgba(56,189,248,.45);
+    cursor: pointer;
+}
+
+.btn-secondary{
+    border:2px solid var(--ice-blue);
+    color:var(--ice-blue);
+    background:transparent;
+    cursor: pointer;
+}
+
+.btn-secondary:hover{
+    background:var(--ice-blue);
+    color:var(--deep-midnight);
+    transform:translateY(-4px);
+    cursor: pointer;
+}
+
+/* QUOTE */
+.quote{
+    margin-top:40px;
+    font-style:italic;
+    color:var(--ice-blue);
+    opacity:.8;
+    letter-spacing:.5px;
+    filter:drop-shadow(0 0 8px var(--ice-blue));
+}
+
+/* MOBILE */
+@media(max-width:768px){
+    .error-container{
+        padding:45px 25px;
+    }
+
+    .error-code{
+        font-size:5rem;
+    }
+
+    .error-title{
+        font-size:1.5rem;
+    }
+
+    .fa-mountain{
+        font-size:4rem;
+    }
+}
+
+
+.footer{
+    margin-top:35px;
+    text-align:center;
+    width:100%;
+    opacity:.75;
+}
+
+.social-links{
+    display:flex;
+    justify-content:center;
+    gap:22px;
+    margin-bottom:20px;
+    flex-wrap:wrap;
+}
+
+.social-links a{
+    color:white;
+    font-size:1.6rem;
+    opacity:.65;
+    transition:.3s ease;
+}
+
+.social-links a:hover{
+    color:var(--ice-blue);
+    opacity:1;
+    transform:translateY(-4px);
+    filter:drop-shadow(0 0 10px var(--ice-blue));
+}
+
+.footer p{
+    font-size:.8rem;
+    letter-spacing:1px;
+    opacity:.45;
+}
+
+.page-wrapper{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:center;
+    min-height:100vh;
+    width:100%;
+    padding:40px 20px;
+}
+
+a,
+button,
+.btn,
+.social-links a{
+    cursor:pointer !important;
+
+}
+
+
+
+
+
+
+
+
+
+.error-code{
+    animation:fadeUp 1s ease .1s both;
+}
+
+.error-title{
+    animation:fadeUp 1s ease .25s both;
+}
+
+.error-text{
+    animation:fadeUp 1s ease .4s both;
+}
+
+.button-group{
+    animation:fadeUp 1s ease .55s both;
+}
+
+.footer{
+    animation:fadeUp 1s ease .7s both;
+}
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(20px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+/*
+
+.error-container::before{
+    content:'';
+    position:absolute;
+    inset:0;
+    border-radius:32px;
+    background:linear-gradient(
+        120deg,
+        transparent 20%,
+        rgba(255,255,255,.08),
+        transparent 80%
+    );
+    transform:translateX(-100%);
+    animation:shine 6s infinite;
+}
+
+.error-container{
+    position:relative;
+    overflow:hidden;
+}
+
+@keyframes shine{
+    to{
+        transform:translateX(100%);
+    }
+}
+
+*/
+</style>
+</head>
+
+<body>
+
+<div id="cursor-dot"></div>
+<div id="cursor-outline"></div>
+
+<div class="mountain-bg"></div>
+<div class="overlay"></div>
+<canvas id="snow-canvas"></canvas>
+
+<div class="error-container">
+
+    <i class="fa-solid fa-mountain"></i>
+
+    <div class="error-code">404</div>
+
+    <h1 class="error-title">Lost Beyond The Ridge</h1>
+
+    <p class="error-text">
+        The trail you tried to follow disappears into the storm.
+        This page may have moved, vanished, or never existed in the first place.
+        But every climber finds their way back to the summit.
+    </p>
+
+    <div class="button-group">
+        <a href="/" class="btn btn-primary">
+            <i class="fa-solid fa-house"></i>
+            Return Home
+        </a>
+
+        <a href="/projects" class="btn btn-secondary">
+            <i class="fa-solid fa-layer-group"></i>
+            Explore Projects
+        </a>
+    </div>
+
+    <p class="quote">
+        “Even the lost paths lead somewhere.”
+    </p>
+    
+    <footer class="footer">
+
+    <p>NothingButTyler &copy; 2026 | Built with Faith & Vision</p>
+</footer>
+
+</div>
+
+
+
+<script>
+/* CUSTOM CURSOR */
+const dot = document.getElementById('cursor-dot');
+const outline = document.getElementById('cursor-outline');
+
+window.addEventListener('mousemove', (e) => {
+    dot.style.left = outline.style.left = e.clientX + 'px';
+    dot.style.top = outline.style.top = e.clientY + 'px';
+});
+
+/* SNOW EFFECT */
+const canvas = document.getElementById('snow-canvas');
+const ctx = canvas.getContext('2d');
+
+let w,h,flakes=[];
+
+function initSnow(){
+    w = canvas.width = window.innerWidth;
+    h = canvas.height = window.innerHeight;
+
+    flakes = Array.from({length:70}, () => ({
+        x:Math.random()*w,
+        y:Math.random()*h,
+        r:Math.random()*3+1,
+        d:Math.random()*1
+    }));
+}
+
+function drawSnow(){
+    ctx.clearRect(0,0,w,h);
+
+    ctx.fillStyle = "rgba(255,255,255,0.55)";
+    ctx.beginPath();
+
+    flakes.forEach(f => {
+        ctx.moveTo(f.x,f.y);
+        ctx.arc(f.x,f.y,f.r,0,Math.PI*2);
+
+        f.y += f.d + 0.4;
+        f.x += Math.sin(f.y * 0.002);
+
+        if(f.y > h){
+            f.y = -10;
+            f.x = Math.random()*w;
+        }
+    });
+
+    ctx.fill();
+    requestAnimationFrame(drawSnow);
+}
+
+initSnow();
+drawSnow();
+
+window.addEventListener('resize', initSnow);
+
+
+
+
+
+
+
+
+const messages = [
+    "The trail disappeared into the storm. This page may have moved, vanished, or never existed in the first place. But every climber finds their way back to the summit.",
+    "This summit no longer exists. This page may have moved, vanished, or never existed in the first place. But every climber finds their way back to the summit.",
+    "You wandered beyond the ridge. This page may have moved, vanished, or never existed in the first place. But every climber finds their way back to the summit.",
+    "Even explorers lose the path sometimes. This page may have moved, vanished, or never existed in the first place. But every climber finds their way back to the summit."
+];
+
+document.querySelector('.error-text').innerText =
+    messages[Math.floor(Math.random() * messages.length)];
+</script>
+
+</body>
+</html>
